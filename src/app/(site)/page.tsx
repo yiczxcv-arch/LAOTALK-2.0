@@ -1,5 +1,6 @@
 import { HeroBanner } from "@/components/home/HeroBanner";
 import { NoticeBar } from "@/components/home/NoticeBar";
+import { LaotalkTv } from "@/components/home/LaotalkTv";
 import { TodayLaos } from "@/components/home/TodayLaos";
 import { CategoryServices } from "@/components/home/CategoryServices";
 import { RecommendedActivities } from "@/components/home/RecommendedActivities";
@@ -16,6 +17,7 @@ export default function Home() {
     <div className="mx-auto max-w-[1200px] pb-4">
       <HeroBanner />
       <NoticeBar />
+      <LaotalkTv />
       <TodayLaos />
       <CategoryServices />
       <RecommendedActivities />
