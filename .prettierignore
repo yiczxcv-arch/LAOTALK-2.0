@@ -1,0 +1,10 @@
+node_modules
+.next
+out
+build
+public
+docs
+design
+package-lock.json
+sessions
+.next-linux

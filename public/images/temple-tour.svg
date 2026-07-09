@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="templeSky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#bfe3fb" />
+      <stop offset="100%" stop-color="#eaf6e0" />
+    </linearGradient>
+    <linearGradient id="templeRoof" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e2b04f" />
+      <stop offset="100%" stop-color="#a5701f" />
+    </linearGradient>
+  </defs>
+  <rect width="400" height="300" fill="url(#templeSky)" />
+
+  <path d="M0 190 C60 170 110 195 160 175 C210 155 250 185 300 165 C340 150 370 175 400 165 L400 300 L0 300 Z" fill="#4d7a4a" opacity="0.4" />
+
+  <g fill="#8a1f1f">
+    <rect x="120" y="180" width="160" height="80" />
+  </g>
+  <g fill="url(#templeRoof)" stroke="#6b4413" stroke-width="1.5">
+    <path d="M90 185 L310 185 L275 140 L125 140 Z" />
+    <path d="M115 145 L285 145 L255 105 L145 105 Z" />
+    <path d="M150 108 L250 108 L220 70 L180 70 Z" />
+  </g>
+  <rect x="192" y="55" width="16" height="20" fill="#e2b04f" />
+  <circle cx="200" cy="50" r="5" fill="#e2b04f" />
+
+  <g fill="#c98a2b" opacity="0.85">
+    <rect x="140" y="200" width="12" height="60" />
+    <rect x="248" y="200" width="12" height="60" />
+    <rect x="194" y="200" width="12" height="60" />
+  </g>
+
+  <g fill="#2f6b39">
+    <ellipse cx="60" cy="255" rx="34" ry="10" />
+    <rect x="56" y="200" width="8" height="60" />
+    <ellipse cx="60" cy="205" rx="28" ry="16" />
+  </g>
+  <g fill="#2f6b39">
+    <ellipse cx="345" cy="250" rx="30" ry="9" />
+    <rect x="341" y="198" width="8" height="56" />
+    <ellipse cx="345" cy="203" rx="24" ry="14" />
+  </g>
+
+  <rect y="258" width="400" height="42" fill="#d9cdb0" />
+</svg>

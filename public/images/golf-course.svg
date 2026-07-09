@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="golfSky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#aee0f7" />
+      <stop offset="100%" stop-color="#e8f6e6" />
+    </linearGradient>
+    <linearGradient id="golfFairway" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8fcf6c" />
+      <stop offset="100%" stop-color="#4f9a4a" />
+    </linearGradient>
+    <radialGradient id="golfGreen" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#a8e08a" />
+      <stop offset="100%" stop-color="#79bd5e" />
+    </radialGradient>
+  </defs>
+  <rect width="400" height="300" fill="url(#golfSky)" />
+  <circle cx="330" cy="55" r="28" fill="#fff3d6" opacity="0.9" />
+
+  <path d="M0 150 C60 120 120 155 180 130 C240 108 300 145 400 120 L400 300 L0 300 Z" fill="url(#golfFairway)" />
+
+  <ellipse cx="230" cy="235" rx="120" ry="42" fill="url(#golfGreen)" />
+
+  <g fill="#3a6b3f">
+    <ellipse cx="60" cy="190" rx="30" ry="14" />
+    <rect x="56" y="150" width="8" height="46" />
+    <ellipse cx="60" cy="150" rx="24" ry="20" />
+  </g>
+  <g fill="#3a6b3f">
+    <ellipse cx="120" cy="175" rx="24" ry="11" />
+    <rect x="117" y="142" width="6" height="38" />
+    <ellipse cx="120" cy="142" rx="18" ry="15" />
+  </g>
+
+  <line x1="272" y1="180" x2="272" y2="235" stroke="#8a8a8a" stroke-width="2" />
+  <path d="M272 180 L310 190 L272 200 Z" fill="#e34d4d" />
+  <ellipse cx="272" cy="236" rx="6" ry="2.5" fill="#1c1c1c" />
+
+  <rect y="278" width="400" height="22" fill="#3a6b3f" opacity="0.5" />
+</svg>

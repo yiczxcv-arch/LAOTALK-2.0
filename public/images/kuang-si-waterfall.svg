@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="wfSky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#d7f2e0" />
+      <stop offset="100%" stop-color="#bfeadb" />
+    </linearGradient>
+    <linearGradient id="wfWater" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#eafffb" />
+      <stop offset="100%" stop-color="#7fd8d1" />
+    </linearGradient>
+    <linearGradient id="wfPool" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#37c2c2" />
+      <stop offset="100%" stop-color="#0f9aa0" />
+    </linearGradient>
+  </defs>
+  <rect width="400" height="300" fill="url(#wfSky)" />
+
+  <path d="M0 130 C60 100 100 130 150 100 C200 75 250 110 300 90 C340 75 370 100 400 90 L400 300 L0 300 Z" fill="#3f7a4a" />
+
+  <path d="M150 60 L250 60 L235 130 L165 130 Z" fill="#e9e6df" />
+  <path d="M170 130 L230 130 L220 190 L180 190 Z" fill="#e9e6df" />
+  <rect x="150" y="55" width="100" height="10" fill="#d8d4ca" />
+
+  <path d="M165 65 L235 65 L228 128 L172 128 Z" fill="url(#wfWater)" opacity="0.9" />
+  <path d="M182 133 L218 133 L212 186 L188 186 Z" fill="url(#wfWater)" opacity="0.9" />
+
+  <ellipse cx="200" cy="230" rx="150" ry="50" fill="url(#wfPool)" />
+  <ellipse cx="200" cy="205" rx="60" ry="16" fill="#ffffff" opacity="0.5" />
+</svg>

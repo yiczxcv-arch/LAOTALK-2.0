@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="jungleSky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#eaf6d8" />
+      <stop offset="100%" stop-color="#cdeab8" />
+    </linearGradient>
+    <linearGradient id="jungleFar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#6fae5c" />
+      <stop offset="100%" stop-color="#4c9048" />
+    </linearGradient>
+    <linearGradient id="jungleNear" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#357a3c" />
+      <stop offset="100%" stop-color="#1f5c30" />
+    </linearGradient>
+  </defs>
+  <rect width="400" height="300" fill="url(#jungleSky)" />
+
+  <path d="M0 150 C50 110 90 140 140 105 C190 75 230 120 280 95 C320 75 360 110 400 100 L400 210 L0 210 Z" fill="url(#jungleFar)" />
+  <path d="M0 200 C60 165 110 195 160 160 C210 130 250 175 300 150 C340 130 370 165 400 155 L400 300 L0 300 Z" fill="url(#jungleNear)" />
+
+  <line x1="30" y1="60" x2="370" y2="170" stroke="#2b2b2b" stroke-width="3" opacity="0.55" />
+  <circle cx="30" cy="60" r="6" fill="#2b2b2b" opacity="0.6" />
+  <circle cx="370" cy="170" r="6" fill="#2b2b2b" opacity="0.6" />
+</svg>

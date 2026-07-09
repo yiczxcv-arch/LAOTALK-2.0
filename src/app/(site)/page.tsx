@@ -1,0 +1,27 @@
+import { HeroBanner } from "@/components/home/HeroBanner";
+import { NoticeBar } from "@/components/home/NoticeBar";
+import { TodayLaos } from "@/components/home/TodayLaos";
+import { CategoryServices } from "@/components/home/CategoryServices";
+import { RecommendedActivities } from "@/components/home/RecommendedActivities";
+import { RecommendedPackages } from "@/components/home/RecommendedPackages";
+import { CustomTravelCta } from "@/components/home/CustomTravelCta";
+import { ReservationCta } from "@/components/home/ReservationCta";
+
+/**
+ * HOME 페이지 (docs/02_BLUEPRINT.md #3 HOME 구성 · design/mockup 9번.png)
+ * Header / Footer / BottomNav 는 app/layout.tsx 에서 공통 렌더링한다.
+ */
+export default function Home() {
+  return (
+    <div className="mx-auto max-w-[1200px] pb-4">
+      <HeroBanner />
+      <NoticeBar />
+      <TodayLaos />
+      <CategoryServices />
+      <RecommendedActivities />
+      <RecommendedPackages />
+      <CustomTravelCta />
+      <ReservationCta />
+    </div>
+  );
+}

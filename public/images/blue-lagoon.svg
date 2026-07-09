@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="lagoonSky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#bdeafe" />
+      <stop offset="100%" stop-color="#e7f8ee" />
+    </linearGradient>
+    <linearGradient id="lagoonWater" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#38c6c6" />
+      <stop offset="55%" stop-color="#159fb0" />
+      <stop offset="100%" stop-color="#0b7d94" />
+    </linearGradient>
+  </defs>
+  <rect width="400" height="300" fill="url(#lagoonSky)" />
+
+  <g fill="#2f7d4f">
+    <path d="M0 150 C40 110 90 130 130 100 C170 75 210 110 260 90 C300 75 340 105 400 90 L400 175 L0 175 Z" />
+  </g>
+  <g fill="#f3f0e6">
+    <path d="M20 175 L60 120 L100 175 Z" />
+    <path d="M260 175 L305 110 L350 175 Z" />
+  </g>
+
+  <rect y="170" width="400" height="130" fill="url(#lagoonWater)" />
+  <g fill="#ffffff" opacity="0.35">
+    <ellipse cx="90" cy="205" rx="34" ry="4" />
+    <ellipse cx="230" cy="230" rx="46" ry="5" />
+    <ellipse cx="320" cy="195" rx="30" ry="4" />
+    <ellipse cx="150" cy="260" rx="50" ry="5" />
+  </g>
+</svg>
