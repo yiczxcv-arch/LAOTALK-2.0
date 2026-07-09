@@ -4,6 +4,7 @@ import { NoticeBar } from "@/components/home/NoticeBar";
 import { LaotalkTv } from "@/components/home/LaotalkTv";
 import { TodayLaos } from "@/components/home/TodayLaos";
 import { CategoryServices } from "@/components/home/CategoryServices";
+import { PremiumGolf } from "@/components/home/PremiumGolf";
 import { RecommendedActivities } from "@/components/home/RecommendedActivities";
 import { RecommendedPackages } from "@/components/home/RecommendedPackages";
 import { CustomTravelCta } from "@/components/home/CustomTravelCta";
@@ -25,6 +26,7 @@ export default function Home() {
       <LaotalkTv />
       <TodayLaos />
       <CategoryServices />
+      <PremiumGolf />
       <RecommendedActivities />
       <RecommendedPackages />
       <CustomTravelCta />
