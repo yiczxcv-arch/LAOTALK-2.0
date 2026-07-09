@@ -45,8 +45,8 @@ export const packages: TravelPackage[] = [
     tags: ["방비엥", "자연", "힐링"],
     price: 380000,
     priceUnit: "1인",
-    imageSrc: "/images/vang-vieng-package.svg",
-    images: ["/images/vang-vieng-package.svg"],
+    imageSrc: IMAGES.blueLagoon,
+    images: [IMAGES.blueLagoon],
     description:
       "카르스트 산맥과 남송강이 어우러진 방비엥에서 숙박, 액티비티, 픽업까지 한번에 즐기는 힐링 패키지입니다.",
     included: [
@@ -70,8 +70,8 @@ export const packages: TravelPackage[] = [
     tags: ["루앙프라방", "문화체험", "감성여행"],
     price: 520000,
     priceUnit: "1인",
-    imageSrc: "/images/luang-prabang-package.svg",
-    images: ["/images/luang-prabang-package.svg"],
+    imageSrc: IMAGES.kuangSiWaterfall,
+    images: [IMAGES.kuangSiWaterfall],
     description:
       "유네스코 세계문화유산 도시 루앙프라방의 사원과 야시장, 광시폭포까지 둘러보는 감성 가득한 여행 패키지입니다.",
     included: [
@@ -96,8 +96,8 @@ export const packages: TravelPackage[] = [
     tags: ["비엔티안", "단기여행", "가성비"],
     price: 250000,
     priceUnit: "1인",
-    imageSrc: "/images/patuxai-night.svg",
-    images: ["/images/patuxai-night.svg"],
+    imageSrc: IMAGES.heroPhaThatLuang,
+    images: [IMAGES.heroPhaThatLuang],
     description: "짧은 일정으로도 비엔티안의 핵심 명소를 알차게 둘러볼 수 있는 단기 패키지입니다.",
     included: [
       { icon: "bed", label: "숙박" },
@@ -119,8 +119,8 @@ export const packages: TravelPackage[] = [
     tags: ["방비엥", "커플", "힐링"],
     price: 420000,
     priceUnit: "1인",
-    imageSrc: "/images/vang-vieng-package.svg",
-    images: ["/images/vang-vieng-package.svg"],
+    imageSrc: IMAGES.hotAirBalloon,
+    images: [IMAGES.hotAirBalloon, IMAGES.tubing],
     description: "연인과 함께 방비엥의 자연 속에서 여유로운 시간을 보낼 수 있도록 구성한 커플 전용 패키지입니다.",
     included: [
       { icon: "bed", label: "숙박" },
@@ -167,8 +167,8 @@ export const packages: TravelPackage[] = [
     tags: ["루앙프라방", "가족여행", "문화체험"],
     price: 560000,
     priceUnit: "1인",
-    imageSrc: "/images/luang-prabang-package.svg",
-    images: ["/images/luang-prabang-package.svg"],
+    imageSrc: IMAGES.kuangSiWaterfall,
+    images: [IMAGES.kuangSiWaterfall],
     description: "아이와 함께하기 좋은 편안한 일정으로 구성한 루앙프라방 가족 여행 패키지입니다.",
     included: [
       { icon: "bed", label: "숙박" },
