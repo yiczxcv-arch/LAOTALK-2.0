@@ -1,10 +1,11 @@
 import { ExternalLink, PlayCircle } from "lucide-react";
-import { IMAGES } from "@/lib/data/images";
+import { laotalkTv } from "@/components/home/data";
 
-const YOUTUBE_CHANNEL_URL = "https://www.youtube.com/@llaotalk_official";
-const YOUTUBE_CHANNEL_HANDLE = "@llaotalk_official";
-
-/** 라오톡 TV — 브랜드 콘텐츠 허브 안내 섹션. 유튜브 API 연동/자동 영상 불러오기 없이 채널 링크만 제공한다. */
+/**
+ * 라오톡 TV — 브랜드 콘텐츠 허브 안내 섹션.
+ * 유튜브 API 연동/자동 영상 불러오기 없이 components/home/data.ts의 laotalkTv 값만 수동으로 노출한다.
+ * 운영자는 최신 영상 교체 시 data.ts의 laotalkTv 객체만 수정하면 된다.
+ */
 function LaotalkTv() {
   return (
     <section className="px-4 pt-5">
@@ -13,14 +14,12 @@ function LaotalkTv() {
           <span aria-hidden="true">🎥</span>
           라오톡 TV
         </p>
-        <p className="mt-1 text-body2 text-foreground">라오스를 가장 생생하게 만나는 방법</p>
-        <p className="mt-1 text-caption2 text-muted-foreground">
-          최신 영상으로 여행·골프·맛집·생활 정보를 확인하세요.
-        </p>
-        <p className="mt-1 text-caption2 text-muted-foreground">{YOUTUBE_CHANNEL_HANDLE}</p>
+        <p className="mt-1 text-body2 text-foreground">{laotalkTv.videoTitle}</p>
+        <p className="mt-1 text-caption2 text-muted-foreground">{laotalkTv.videoDescription}</p>
+        <p className="mt-1 text-caption2 text-muted-foreground">{laotalkTv.channelHandle}</p>
 
         <a
-          href={YOUTUBE_CHANNEL_URL}
+          href={laotalkTv.channelUrl}
           target="_blank"
           rel="noopener noreferrer"
           aria-label="라오톡 TV 유튜브 채널에서 최신 영상 보기"
@@ -28,7 +27,7 @@ function LaotalkTv() {
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={IMAGES.tubing}
+            src={laotalkTv.thumbnailSrc}
             alt=""
             aria-hidden="true"
             className="size-full object-cover"
@@ -43,7 +42,7 @@ function LaotalkTv() {
         </a>
 
         <a
-          href={YOUTUBE_CHANNEL_URL}
+          href={laotalkTv.channelUrl}
           target="_blank"
           rel="noopener noreferrer"
           className="mt-4 inline-flex h-14 w-full items-center justify-center gap-2 rounded-button bg-primary px-6 text-button text-primary-foreground shadow-[0_4px_12px_rgba(37,99,235,0.25)] transition-[background-color,transform] duration-150 hover:bg-primary-hover active:scale-[0.98] active:bg-primary-hover"

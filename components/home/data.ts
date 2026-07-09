@@ -74,6 +74,27 @@ export const todayLaosItems: TodayLaosItem[] = [
   { id: "weather", label: "날씨", value: "32°C", sub: "맑음 · 비엔티안" },
 ];
 
+export type LaotalkTvConfig = {
+  channelUrl: string;
+  channelHandle: string;
+  videoTitle: string;
+  videoDescription: string;
+  thumbnailSrc: string;
+};
+
+/**
+ * 라오톡 TV 최신 영상 수동 연동 설정 (유튜브 API 미사용).
+ * 최신 영상으로 교체할 때 이 객체의 값만 수정하면 된다 — channelUrl: 채널 또는 최신 영상 링크,
+ * videoTitle/videoDescription: 카드에 노출할 문구, thumbnailSrc: lib/data/images.ts의 IMAGES 상수 사용 권장.
+ */
+export const laotalkTv: LaotalkTvConfig = {
+  channelUrl: "https://www.youtube.com/@llaotalk_official",
+  channelHandle: "@llaotalk_official",
+  videoTitle: "라오스를 가장 생생하게 만나는 방법",
+  videoDescription: "최신 영상으로 여행·골프·맛집·생활 정보를 확인하세요.",
+  thumbnailSrc: IMAGES.tubing,
+};
+
 export type CategoryService = {
   id: string;
   label: string;
