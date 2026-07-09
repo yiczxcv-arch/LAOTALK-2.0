@@ -124,8 +124,8 @@ export const activities: Activity[] = [
     priceUnit: "1인",
     rating: { score: 4.6, count: 54 },
     reservationCount: 88,
-    imageSrc: "/images/temple-tour.svg",
-    images: ["/images/temple-tour.svg"],
+    imageSrc: IMAGES.heroPhaThatLuang,
+    images: [IMAGES.heroPhaThatLuang],
     description:
       "루앙프라방에서 가장 아름다운 사원으로 꼽히는 왓시엥통을 현지 가이드와 함께 둘러보는 문화 탐방 코스입니다.",
     included: [
@@ -150,8 +150,8 @@ export const activities: Activity[] = [
     priceUnit: "1인",
     rating: { score: 4.5, count: 41 },
     reservationCount: 63,
-    imageSrc: "/images/patuxai-night.svg",
-    images: ["/images/patuxai-night.svg"],
+    imageSrc: IMAGES.heroPhaThatLuang,
+    images: [IMAGES.heroPhaThatLuang],
     description:
       "빠뚜싸이, 탓루앙 등 비엔티안의 핵심 명소를 반나절 만에 둘러보는 시티 투어입니다.",
     included: [
@@ -226,8 +226,8 @@ export const activities: Activity[] = [
     priceUnit: "1인",
     rating: { score: 4.5, count: 33 },
     reservationCount: 52,
-    imageSrc: "/images/patuxai-night.svg",
-    images: ["/images/patuxai-night.svg"],
+    imageSrc: IMAGES.heroPhaThatLuang,
+    images: [IMAGES.heroPhaThatLuang],
     description: "메콩강변 야시장에서 현지 먹거리와 소품을 즐기는 저녁 투어입니다.",
     included: [
       { icon: "clock", label: "소요시간", value: "2시간" },
