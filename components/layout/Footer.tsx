@@ -11,8 +11,12 @@ function Footer() {
 
         <div className="flex flex-wrap gap-x-4 gap-y-2">
           <span>회사소개</span>
-          <span>이용약관</span>
-          <span>개인정보처리방침</span>
+          <span aria-disabled="true" className="cursor-not-allowed opacity-50">
+            이용약관 (준비중)
+          </span>
+          <span aria-disabled="true" className="cursor-not-allowed opacity-50">
+            개인정보처리방침 (준비중)
+          </span>
           <Link href="/reservation" className="hover:text-foreground">
             카카오 문의
           </Link>

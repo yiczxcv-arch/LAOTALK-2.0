@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { ReservationForm } from "@/components/reservation/ReservationForm";
-import { activities, getActivityBySlug } from "@/lib/data/activities";
+import { getActivityBySlug } from "@/lib/data/activities";
 import { getGolfCourseBySlug } from "@/lib/data/golf";
 import { getPackageBySlug } from "@/lib/data/packages";
-import type { ProductType, SelectedProduct } from "@/lib/types/inquiry";
+import type { SelectedProduct } from "@/lib/types/inquiry";
 
 export const metadata: Metadata = {
   title: "예약 문의 | LAOTALK",
@@ -14,7 +14,8 @@ type ReservationPageProps = {
   searchParams: Promise<{ type?: string; slug?: string }>;
 };
 
-function resolveProduct(type?: string, slug?: string): SelectedProduct {
+/** 쿼리(type/slug)로 상품을 찾지 못하면 null을 반환한다 — 특정 상품으로의 임의 폴백 없음 */
+function resolveProduct(type?: string, slug?: string): SelectedProduct | null {
   if (type === "activity" && slug) {
     const activity = getActivityBySlug(slug);
     if (activity) {
@@ -52,14 +53,7 @@ function resolveProduct(type?: string, slug?: string): SelectedProduct {
     }
   }
 
-  const fallback = activities[0];
-  return {
-    type: "activity" as ProductType,
-    slug: fallback.slug,
-    title: fallback.title,
-    price: fallback.price,
-    imageSrc: fallback.imageSrc,
-  };
+  return null;
 }
 
 /** 예약 문의 페이지 (docs/02_BLUEPRINT.md #8 RESERVATION · design/wireframe 7번.png "04 예약하기") */

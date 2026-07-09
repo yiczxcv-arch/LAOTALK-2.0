@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { CircleCheck } from "lucide-react";
+import { CircleCheck, PackageSearch } from "lucide-react";
 import { StepIndicator } from "@/components/common/StepIndicator";
 import { TextField } from "@/components/common/TextField";
 import { SelectField } from "@/components/common/SelectField";
@@ -14,7 +14,7 @@ import { peopleCountOptions, type ReservationInquiry, type SelectedProduct } fro
 const steps = ["상품 선택", "정보 입력", "문의 접수 완료"];
 
 type ReservationFormProps = {
-  product: SelectedProduct;
+  product: SelectedProduct | null;
 };
 
 function createInitialForm(product: SelectedProduct): ReservationInquiry {
@@ -30,9 +30,11 @@ function createInitialForm(product: SelectedProduct): ReservationInquiry {
   };
 }
 
-/** 예약 문의 폼 — 상품 선택은 완료된 상태로 진입, 정보 입력 → 문의 접수 완료 2단계로 진행 */
+/** 예약 문의 폼 — 상품 상세에서 진입 시 상품 선택 완료 상태로 시작, 상품 없이 진입 시 선택 안내 상태로 표시 */
 function ReservationForm({ product }: ReservationFormProps) {
-  const [form, setForm] = useState<ReservationInquiry>(() => createInitialForm(product));
+  const [form, setForm] = useState<ReservationInquiry | null>(() =>
+    product ? createInitialForm(product) : null
+  );
   const [submitted, setSubmitted] = useState(false);
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -44,7 +46,7 @@ function ReservationForm({ product }: ReservationFormProps) {
   return (
     <div className="mx-auto max-w-[1200px] pb-8">
       <section className="px-4 pt-4">
-        <StepIndicator steps={steps} currentStep={submitted ? 3 : 2} />
+        <StepIndicator steps={steps} currentStep={submitted ? 3 : form ? 2 : 1} />
       </section>
 
       {submitted ? (
@@ -56,6 +58,14 @@ function ReservationForm({ product }: ReservationFormProps) {
           <PrimaryButton href="/" className="mt-4 max-w-xs">
             홈으로 돌아가기
           </PrimaryButton>
+        </div>
+      ) : !form ? (
+        <div className="flex min-h-[55vh] flex-col items-center justify-center gap-4 px-4 pt-10 text-center">
+          <PackageSearch className="size-14 text-muted-foreground" strokeWidth={1.5} />
+          <p className="text-title2 text-foreground">상품을 선택해주세요</p>
+          <p className="text-body2 text-muted-foreground">
+            액티비티·골프·패키지 상세 페이지에서 예약하기 버튼을 눌러주세요.
+          </p>
         </div>
       ) : (
         <>
@@ -85,7 +95,7 @@ function ReservationForm({ product }: ReservationFormProps) {
               name="name"
               placeholder="이름을 입력해주세요"
               value={form.name}
-              onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
+              onChange={(e) => setForm((f) => (f ? { ...f, name: e.target.value } : f))}
               required
             />
 
@@ -95,7 +105,7 @@ function ReservationForm({ product }: ReservationFormProps) {
               type="tel"
               placeholder="010-1234-5678"
               value={form.phone}
-              onChange={(e) => setForm((f) => ({ ...f, phone: e.target.value }))}
+              onChange={(e) => setForm((f) => (f ? { ...f, phone: e.target.value } : f))}
               required
             />
 
@@ -104,7 +114,7 @@ function ReservationForm({ product }: ReservationFormProps) {
               name="kakaoId"
               placeholder="카카오톡 ID를 입력해주세요"
               value={form.kakaoId}
-              onChange={(e) => setForm((f) => ({ ...f, kakaoId: e.target.value }))}
+              onChange={(e) => setForm((f) => (f ? { ...f, kakaoId: e.target.value } : f))}
               required
             />
 
@@ -113,7 +123,7 @@ function ReservationForm({ product }: ReservationFormProps) {
               name="travelDate"
               type="date"
               value={form.travelDate}
-              onChange={(e) => setForm((f) => ({ ...f, travelDate: e.target.value }))}
+              onChange={(e) => setForm((f) => (f ? { ...f, travelDate: e.target.value } : f))}
               required
             />
 
@@ -122,7 +132,7 @@ function ReservationForm({ product }: ReservationFormProps) {
               name="peopleCount"
               options={[...peopleCountOptions]}
               value={form.peopleCount}
-              onChange={(e) => setForm((f) => ({ ...f, peopleCount: e.target.value }))}
+              onChange={(e) => setForm((f) => (f ? { ...f, peopleCount: e.target.value } : f))}
               required
             />
 
@@ -131,14 +141,14 @@ function ReservationForm({ product }: ReservationFormProps) {
               name="message"
               placeholder="요청사항을 입력해주세요"
               value={form.message}
-              onChange={(e) => setForm((f) => ({ ...f, message: e.target.value }))}
+              onChange={(e) => setForm((f) => (f ? { ...f, message: e.target.value } : f))}
             />
 
             <Checkbox
               label="개인정보 수집 및 이용에 동의합니다."
               name="agreedToPrivacyPolicy"
               checked={form.agreedToPrivacyPolicy}
-              onChange={(e) => setForm((f) => ({ ...f, agreedToPrivacyPolicy: e.target.checked }))}
+              onChange={(e) => setForm((f) => (f ? { ...f, agreedToPrivacyPolicy: e.target.checked } : f))}
               required
             />
 
