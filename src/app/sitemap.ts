@@ -17,6 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/golf`, priority: 0.8 },
     { url: `${SITE_URL}/package`, priority: 0.8 },
     { url: `${SITE_URL}/custom-travel`, priority: 0.6 },
+    { url: `${SITE_URL}/partners`, priority: 0.6 },
     { url: `${SITE_URL}/reservation`, priority: 0.5 },
   ];
 
