@@ -66,11 +66,11 @@ export const todayLaosItems: TodayLaosItem[] = [
   {
     id: "news",
     label: "비엔티안 빠뚜싸이",
-    value: "야간 조명 문의 시작",
+    value: "야간 경관조명 운영 시작",
     sub: "",
     imageSrc: "/images/patuxai-night.svg",
   },
-  { id: "exchange", label: "환율 정보", value: "1,000원 = 16,800KIP", sub: "06.16 09:00 기준" },
+  { id: "exchange", label: "환율 정보", value: "1,000원 ≈ 16,800 KIP", sub: "라오톡 매일 업데이트" },
   { id: "weather", label: "날씨", value: "32°C", sub: "맑음 · 비엔티안" },
 ];
 

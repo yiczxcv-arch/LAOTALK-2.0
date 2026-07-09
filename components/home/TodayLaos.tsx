@@ -12,6 +12,9 @@ function TodayLaos() {
   return (
     <section className="px-4 pt-5">
       <SectionHeader title="오늘의 라오스" />
+      <p className="mt-1 text-caption2 text-muted-foreground">
+        라오톡이 매일 확인하는 라오스 현지 소식과 환율·날씨
+      </p>
       <div className="mt-3 grid grid-cols-3 gap-3">
         {todayLaosItems.map((item) => {
           if (item.imageSrc) {
@@ -50,7 +53,9 @@ function TodayLaos() {
           );
         })}
       </div>
-      <p className="mt-2 text-caption2 text-muted-foreground">환율·날씨는 운영 전 예시 정보입니다.</p>
+      <p className="mt-2 text-caption2 text-muted-foreground">
+        환율·날씨는 라오톡이 매일 확인해 전해드리며, 실시간 자동 연동 정보는 아닙니다.
+      </p>
     </section>
   );
 }
