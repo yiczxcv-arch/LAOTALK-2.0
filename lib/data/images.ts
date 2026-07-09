@@ -7,7 +7,11 @@
 export const IMAGES = {
   heroPhaThatLuang: "/images/hero-pha-that-luang.jpg",
   golfCourse: "/images/golf-course.jpg",
+  golfLakeview: "/images/golf-lakeview.jpg",
+  golfMekong: "/images/golf-mekong.jpg",
   blueLagoon: "/images/blue-lagoon.jpg",
   ziplineCave: "/images/zipline-cave.jpg",
   kuangSiWaterfall: "/images/kuang-si-waterfall.jpg",
+  tubing: "/images/tubing.jpg",
+  hotAirBalloon: "/images/hot-air-balloon.jpg",
 } as const;

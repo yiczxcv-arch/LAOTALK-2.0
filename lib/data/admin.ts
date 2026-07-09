@@ -78,7 +78,7 @@ export const reservationRecords: ReservationRecord[] = [
     productTitle: "레이크뷰 골프클럽",
     productSlug: "lakeview-golf-club",
     price: 90000,
-    imageSrc: IMAGES.golfCourse,
+    imageSrc: IMAGES.golfLakeview,
     name: "이서연",
     phone: "010-2222-3333",
     kakaoId: "seoyeon_lee",

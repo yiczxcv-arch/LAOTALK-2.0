@@ -176,8 +176,8 @@ export const activities: Activity[] = [
     priceUnit: "1인",
     rating: { score: 4.4, count: 67 },
     reservationCount: 121,
-    imageSrc: IMAGES.blueLagoon,
-    images: [IMAGES.blueLagoon],
+    imageSrc: IMAGES.tubing,
+    images: [IMAGES.tubing],
     description: "남송강을 따라 튜브를 타고 내려가며 방비엥의 자연을 온몸으로 느껴보세요.",
     included: [
       { icon: "clock", label: "소요시간", value: "4시간" },
@@ -251,8 +251,8 @@ export const activities: Activity[] = [
     priceUnit: "1인",
     rating: { score: 4.9, count: 82 },
     reservationCount: 96,
-    imageSrc: IMAGES.ziplineCave,
-    images: [IMAGES.ziplineCave],
+    imageSrc: IMAGES.hotAirBalloon,
+    images: [IMAGES.hotAirBalloon],
     description: "카르스트 지형 위로 떠올라 방비엥의 절경을 하늘에서 감상하는 프리미엄 투어입니다.",
     included: [
       { icon: "clock", label: "소요시간", value: "1시간" },
