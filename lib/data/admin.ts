@@ -6,6 +6,7 @@
  */
 
 import type { ProductType } from "@/lib/types/inquiry";
+import { IMAGES } from "@/lib/data/images";
 
 export type ReservationStatus =
   | "신규 문의"
@@ -61,7 +62,7 @@ export const reservationRecords: ReservationRecord[] = [
     productTitle: "블루라군 & 카약",
     productSlug: "blue-lagoon-kayak",
     price: 35000,
-    imageSrc: "/images/blue-lagoon.svg",
+    imageSrc: IMAGES.blueLagoon,
     name: "김민준",
     phone: "010-1234-5678",
     kakaoId: "minjun_k",
@@ -77,7 +78,7 @@ export const reservationRecords: ReservationRecord[] = [
     productTitle: "레이크뷰 골프클럽",
     productSlug: "lakeview-golf-club",
     price: 90000,
-    imageSrc: "/images/golf-course.svg",
+    imageSrc: IMAGES.golfCourse,
     name: "이서연",
     phone: "010-2222-3333",
     kakaoId: "seoyeon_lee",
@@ -109,7 +110,7 @@ export const reservationRecords: ReservationRecord[] = [
     productTitle: "광시폭포 투어",
     productSlug: "kuang-si-waterfall",
     price: 40000,
-    imageSrc: "/images/kuang-si-waterfall.svg",
+    imageSrc: IMAGES.kuangSiWaterfall,
     name: "최유진",
     phone: "010-4444-5555",
     kakaoId: "yujin_choi",
@@ -141,7 +142,7 @@ export const reservationRecords: ReservationRecord[] = [
     productTitle: "부영 골프클럽",
     productSlug: "bouyang-golf-club",
     price: 70000,
-    imageSrc: "/images/golf-course.svg",
+    imageSrc: IMAGES.golfCourse,
     name: "한도윤",
     phone: "010-6666-7777",
     kakaoId: "doyoon_han",
@@ -157,7 +158,7 @@ export const reservationRecords: ReservationRecord[] = [
     productTitle: "질라인 & 동굴탐험",
     productSlug: "zipline-cave",
     price: 45000,
-    imageSrc: "/images/zipline-cave.svg",
+    imageSrc: IMAGES.ziplineCave,
     name: "오서준",
     phone: "010-7777-8888",
     kakaoId: "seojun_oh",

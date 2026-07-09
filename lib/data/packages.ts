@@ -6,6 +6,8 @@
  * 추후 관리자/DB 연동 시 이 타입을 API 응답 타입으로 그대로 확장하면 된다.
  */
 
+import { IMAGES } from "@/lib/data/images";
+
 export type PackageDuration = "2박 3일" | "3박 4일" | "4박 5일";
 
 export type IncludedItem = {
@@ -141,8 +143,8 @@ export const packages: TravelPackage[] = [
     tags: ["비엔티안", "골프", "단체"],
     price: 650000,
     priceUnit: "1인",
-    imageSrc: "/images/golf-course.svg",
-    images: ["/images/golf-course.svg"],
+    imageSrc: IMAGES.golfCourse,
+    images: [IMAGES.golfCourse],
     description: "비엔티안 인기 골프장 2곳에서의 라운딩과 숙박, 픽업까지 포함된 골프 애호가를 위한 패키지입니다.",
     included: [
       { icon: "bed", label: "숙박" },

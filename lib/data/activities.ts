@@ -6,6 +6,8 @@
  * HOME의 추천 액티비티(components/home/data.ts)도 이 데이터에서 파생하여 중복을 없앤다.
  */
 
+import { IMAGES } from "@/lib/data/images";
+
 export type ActivityRegion = "방비엥" | "비엔티안" | "루앙프라방";
 
 export type IncludedItem = {
@@ -44,8 +46,8 @@ export const activities: Activity[] = [
     priceUnit: "1인",
     rating: { score: 4.8, count: 120 },
     reservationCount: 286,
-    imageSrc: "/images/blue-lagoon.svg",
-    images: ["/images/blue-lagoon.svg"],
+    imageSrc: IMAGES.blueLagoon,
+    images: [IMAGES.blueLagoon],
     description:
       "에메랄드빛 블루라군에서 수영과 카약을 즐기고 동남아의 자연을 만끽하세요.",
     included: [
@@ -70,8 +72,8 @@ export const activities: Activity[] = [
     priceUnit: "1인",
     rating: { score: 4.9, count: 98 },
     reservationCount: 154,
-    imageSrc: "/images/zipline-cave.svg",
-    images: ["/images/zipline-cave.svg"],
+    imageSrc: IMAGES.ziplineCave,
+    images: [IMAGES.ziplineCave],
     description:
       "정글 위를 가로지르는 짜릿한 짚라인과 신비로운 동굴 탐험을 함께 즐기는 코스입니다.",
     included: [
@@ -96,8 +98,8 @@ export const activities: Activity[] = [
     priceUnit: "1인",
     rating: { score: 4.7, count: 76 },
     reservationCount: 132,
-    imageSrc: "/images/kuang-si-waterfall.svg",
-    images: ["/images/kuang-si-waterfall.svg"],
+    imageSrc: IMAGES.kuangSiWaterfall,
+    images: [IMAGES.kuangSiWaterfall],
     description:
       "루앙프라방 대표 명소 광시폭포의 에메랄드빛 옥빛 소(沼)에서 수영과 트레킹을 즐겨보세요.",
     included: [
@@ -174,8 +176,8 @@ export const activities: Activity[] = [
     priceUnit: "1인",
     rating: { score: 4.4, count: 67 },
     reservationCount: 121,
-    imageSrc: "/images/blue-lagoon.svg",
-    images: ["/images/blue-lagoon.svg"],
+    imageSrc: IMAGES.blueLagoon,
+    images: [IMAGES.blueLagoon],
     description: "남송강을 따라 튜브를 타고 내려가며 방비엥의 자연을 온몸으로 느껴보세요.",
     included: [
       { icon: "clock", label: "소요시간", value: "4시간" },
@@ -199,8 +201,8 @@ export const activities: Activity[] = [
     priceUnit: "1인",
     rating: { score: 4.3, count: 29 },
     reservationCount: 47,
-    imageSrc: "/images/kuang-si-waterfall.svg",
-    images: ["/images/kuang-si-waterfall.svg"],
+    imageSrc: IMAGES.kuangSiWaterfall,
+    images: [IMAGES.kuangSiWaterfall],
     description: "루앙프라방 외곽 마을과 논길을 따라 달리는 여유로운 자전거 투어입니다.",
     included: [
       { icon: "clock", label: "소요시간", value: "3시간" },
@@ -249,8 +251,8 @@ export const activities: Activity[] = [
     priceUnit: "1인",
     rating: { score: 4.9, count: 82 },
     reservationCount: 96,
-    imageSrc: "/images/zipline-cave.svg",
-    images: ["/images/zipline-cave.svg"],
+    imageSrc: IMAGES.ziplineCave,
+    images: [IMAGES.ziplineCave],
     description: "카르스트 지형 위로 떠올라 방비엥의 절경을 하늘에서 감상하는 프리미엄 투어입니다.",
     included: [
       { icon: "clock", label: "소요시간", value: "1시간" },

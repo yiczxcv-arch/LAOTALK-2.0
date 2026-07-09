@@ -6,6 +6,7 @@
 
 import { activities } from "@/lib/data/activities";
 import { packages } from "@/lib/data/packages";
+import { IMAGES } from "@/lib/data/images";
 
 export type HeroSlide = {
   id: string;
@@ -19,25 +20,25 @@ export const heroSlides: HeroSlide[] = [
     id: "hero-1",
     title: "라오스의 모든 정보,\n여기 다 있습니다",
     subtitle: "여행 · 생활 · 예약 · 소식",
-    imageSrc: "/images/hero-pha-that-luang.svg",
+    imageSrc: IMAGES.heroPhaThatLuang,
   },
   {
     id: "hero-2",
     title: "검증된 현지 파트너와\n함께하는 여행",
     subtitle: "액티비티 · 골프 · 패키지",
-    imageSrc: "/images/hero-pha-that-luang.svg",
+    imageSrc: IMAGES.heroPhaThatLuang,
   },
   {
     id: "hero-3",
     title: "카카오 상담으로\n간편하게 예약",
     subtitle: "복잡한 절차 없이 빠르게",
-    imageSrc: "/images/hero-pha-that-luang.svg",
+    imageSrc: IMAGES.heroPhaThatLuang,
   },
   {
     id: "hero-4",
     title: "나만의 일정으로\n떠나는 맞춤여행",
     subtitle: "원하는 스타일 그대로",
-    imageSrc: "/images/hero-pha-that-luang.svg",
+    imageSrc: IMAGES.heroPhaThatLuang,
   },
 ];
 

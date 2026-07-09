@@ -6,6 +6,8 @@
  * 추후 관리자/DB 연동 시 이 타입을 API 응답 타입으로 그대로 확장하면 된다.
  */
 
+import { IMAGES } from "@/lib/data/images";
+
 export type GolfRegion = "비엔티안" | "방비엥" | "루앙프라방";
 
 export type CourseInfo = {
@@ -40,8 +42,8 @@ export const golfCourses: GolfCourse[] = [
     price: 90000,
     priceUnit: "1인",
     rating: { score: 4.6, count: 86 },
-    imageSrc: "/images/golf-course.svg",
-    images: ["/images/golf-course.svg"],
+    imageSrc: IMAGES.golfCourse,
+    images: [IMAGES.golfCourse],
     description: "호수를 끼고 펼쳐진 아름다운 코스에서 여유로운 라운딩을 즐길 수 있는 골프장입니다.",
     courseInfo: { holes: 18, par: 72, slope: 128, difficulty: 4 },
   },
@@ -54,8 +56,8 @@ export const golfCourses: GolfCourse[] = [
     price: 80000,
     priceUnit: "1인",
     rating: { score: 4.5, count: 72 },
-    imageSrc: "/images/golf-course.svg",
-    images: ["/images/golf-course.svg"],
+    imageSrc: IMAGES.golfCourse,
+    images: [IMAGES.golfCourse],
     description: "초보자부터 상급자까지 폭넓게 즐길 수 있는 평지형 코스의 골프장입니다.",
     courseInfo: { holes: 18, par: 72, slope: 120, difficulty: 3 },
   },
@@ -68,8 +70,8 @@ export const golfCourses: GolfCourse[] = [
     price: 70000,
     priceUnit: "1인",
     rating: { score: 4.4, count: 64 },
-    imageSrc: "/images/golf-course.svg",
-    images: ["/images/golf-course.svg"],
+    imageSrc: IMAGES.golfCourse,
+    images: [IMAGES.golfCourse],
     description: "합리적인 가격과 깔끔한 관리로 현지 교민과 여행객 모두에게 사랑받는 골프장입니다.",
     courseInfo: { holes: 18, par: 71, slope: 118, difficulty: 3 },
   },
@@ -82,8 +84,8 @@ export const golfCourses: GolfCourse[] = [
     price: 95000,
     priceUnit: "1인",
     rating: { score: 4.7, count: 58 },
-    imageSrc: "/images/golf-course.svg",
-    images: ["/images/golf-course.svg"],
+    imageSrc: IMAGES.golfCourse,
+    images: [IMAGES.golfCourse],
     description: "카르스트 산맥을 배경으로 라운딩을 즐길 수 있는 방비엥 유일의 골프 코스입니다.",
     courseInfo: { holes: 18, par: 72, slope: 132, difficulty: 5 },
   },
@@ -96,8 +98,8 @@ export const golfCourses: GolfCourse[] = [
     price: 85000,
     priceUnit: "1인",
     rating: { score: 4.5, count: 39 },
-    imageSrc: "/images/golf-course.svg",
-    images: ["/images/golf-course.svg"],
+    imageSrc: IMAGES.golfCourse,
+    images: [IMAGES.golfCourse],
     description: "메콩강을 따라 조성된 코스에서 여유롭게 라운딩을 즐길 수 있는 골프장입니다.",
     courseInfo: { holes: 9, par: 36, slope: 115, difficulty: 2 },
   },
@@ -110,8 +112,8 @@ export const golfCourses: GolfCourse[] = [
     price: 110000,
     priceUnit: "1인",
     rating: { score: 4.8, count: 47 },
-    imageSrc: "/images/golf-course.svg",
-    images: ["/images/golf-course.svg"],
+    imageSrc: IMAGES.golfCourse,
+    images: [IMAGES.golfCourse],
     description: "국제 규격을 갖춘 챔피언십 코스로, 골프 애호가들에게 인기가 높은 프리미엄 골프장입니다.",
     courseInfo: { holes: 18, par: 72, slope: 135, difficulty: 5 },
   },
