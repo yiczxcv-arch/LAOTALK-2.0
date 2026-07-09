@@ -3,7 +3,9 @@ import { CalendarCheck, CircleX, MessageSquare, PhoneCall } from "lucide-react";
 import { StatusBadge } from "@/components/admin/StatusBadge";
 import { reservationRecords, inquiryRecords } from "@/lib/data/admin";
 
-const TODAY = "2026-07-09";
+// 이 페이지는 요청마다 서버에서만 렌더링되며(클라이언트 재계산 없음), "오늘" 날짜도
+// 서버에서 한 번만 계산되어 그대로 HTML로 내려가므로 hydration 불일치가 발생하지 않는다.
+export const dynamic = "force-dynamic";
 
 type RecentItem = {
   id: string;
@@ -16,6 +18,8 @@ type RecentItem = {
 
 /** 관리자 대시보드 (docs/02_BLUEPRINT.md #9 관리자 · design/wireframe 7번.png A2) */
 export default function AdminDashboardPage() {
+  const TODAY = new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Seoul" }).format(new Date());
+
   const todayCount =
     reservationRecords.filter((r) => r.createdAt.startsWith(TODAY)).length +
     inquiryRecords.filter((i) => i.createdAt.startsWith(TODAY)).length;

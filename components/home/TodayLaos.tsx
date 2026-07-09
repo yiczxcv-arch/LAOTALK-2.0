@@ -11,7 +11,7 @@ const iconMap: Record<string, LucideIcon> = {
 function TodayLaos() {
   return (
     <section className="px-4 pt-5">
-      <SectionHeader title="오늘의 라오스" href="/news" />
+      <SectionHeader title="오늘의 라오스" />
       <div className="mt-3 grid grid-cols-3 gap-3">
         {todayLaosItems.map((item) => {
           if (item.imageSrc) {
@@ -50,6 +50,7 @@ function TodayLaos() {
           );
         })}
       </div>
+      <p className="mt-2 text-caption2 text-muted-foreground">환율·날씨는 운영 전 예시 정보입니다.</p>
     </section>
   );
 }
