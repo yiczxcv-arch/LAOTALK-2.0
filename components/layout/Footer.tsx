@@ -11,6 +11,9 @@ function Footer() {
 
         <div className="flex flex-wrap gap-x-3 gap-y-1.5">
           <span>회사소개</span>
+          <Link href="/partners" className="hover:text-foreground">
+            파트너
+          </Link>
           <span aria-disabled="true" className="cursor-not-allowed opacity-50">
             이용약관 (준비중)
           </span>

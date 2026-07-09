@@ -22,5 +22,6 @@ export const siteMenuItems: { label: string; href: string }[] = [
   { label: "골프", href: "/golf" },
   { label: "패키지", href: "/package" },
   { label: "맞춤여행", href: "/custom-travel" },
+  { label: "Partners", href: "/partners" },
   { label: "예약 문의", href: "/reservation" },
 ];

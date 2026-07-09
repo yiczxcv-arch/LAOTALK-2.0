@@ -26,7 +26,7 @@ import { SectionHeader } from "@/components/common/SectionHeader";
 import { IMAGES } from "@/lib/data/images";
 
 const title = "함께하는 파트너 | LAOTALK";
-const description = "좋은 여행은 좋은 파트너와 함께 시작됩니다. LAOTALK이 현지 파트너와 함께 성장하는 방향을 소개합니다.";
+const description = "좋은 여행은 좋은 파트너와 함께 만들어집니다. LAOTALK이 현지 파트너와 함께 성장하는 방향을 소개합니다.";
 
 export const metadata: Metadata = {
   title,
@@ -66,10 +66,10 @@ const fields: FieldItem[] = [
 
 const standards: string[] = [
   "실제 운영 여부 확인",
-  "여행객 중심 서비스",
-  "합리적인 가격",
+  "여행객 만족을 우선하는 서비스",
+  "가격의 투명성",
   "신뢰할 수 있는 응대",
-  "지속적인 관리",
+  "지속적인 협력",
 ];
 
 type FlowStep = {
@@ -97,7 +97,7 @@ const comingSoonItems: ComingSoonItem[] = [
   { id: "video", label: "영상 홍보", icon: Video },
   { id: "certified", label: "인증 파트너", icon: BadgeCheck },
   { id: "map", label: "여행 지도", icon: MapPin },
-  { id: "reservation", label: "예약 서비스 고도화", icon: Calendar },
+  { id: "reservation", label: "예약 시스템 고도화", icon: Calendar },
 ];
 
 /** 브랜드 소개 페이지 "함께하는 파트너" — 업체 목록이 아닌 LAOTALK의 파트너십 철학을 소개하는 정적 콘텐츠 페이지 */
@@ -119,7 +119,7 @@ export default function PartnersPage() {
             </p>
             <h1 className="mt-2 text-title1 text-white">함께하는 파트너</h1>
             <p className="mt-3 whitespace-pre-line text-body1 text-white/90">
-              좋은 여행은{"\n"}좋은 파트너와 함께 시작됩니다.
+              좋은 여행은{"\n"}좋은 파트너와 함께 만들어집니다.
             </p>
           </div>
         </div>
@@ -142,10 +142,10 @@ export default function PartnersPage() {
       </section>
 
       <section className="px-4 pt-12">
-        <SectionHeader title="LAOTALK Partner Standard" />
-        <p className="mt-1 text-caption2 text-muted-foreground">
-          우리가 파트너를 선택하는 기준입니다
+        <p className="text-caption2 font-medium tracking-wide text-muted-foreground">
+          Partner Standard
         </p>
+        <SectionHeader title="우리가 함께하는 기준" className="mt-1" />
         <div className="mt-4 flex flex-col gap-3">
           {standards.map((standard) => (
             <div key={standard} className="flex items-center gap-3 rounded-card bg-surface p-4">
@@ -156,10 +156,16 @@ export default function PartnersPage() {
             </div>
           ))}
         </div>
+        <p className="mt-4 text-center text-caption2 text-muted-foreground">
+          &ldquo;좋은 파트너가 좋은 여행을 만듭니다.&rdquo;
+        </p>
       </section>
 
       <section className="px-4 pt-12">
-        <SectionHeader title="함께 성장하는 구조" />
+        <p className="text-caption2 font-medium tracking-wide text-muted-foreground">
+          Together We Grow
+        </p>
+        <SectionHeader title="함께 성장하는 구조" className="mt-1" />
         <div className="mt-4 flex flex-col items-center">
           {flowSteps.map((step, index) => {
             const Icon = step.icon;
@@ -179,7 +185,10 @@ export default function PartnersPage() {
       </section>
 
       <section className="px-4 pt-12">
-        <SectionHeader title="앞으로 함께 만들어갑니다" />
+        <p className="text-caption2 font-medium tracking-wide text-muted-foreground">
+          Future Partnership
+        </p>
+        <SectionHeader title="앞으로 함께 만들어갑니다" className="mt-1" />
         <div className="mt-4 grid grid-cols-2 gap-3">
           {comingSoonItems.map((item) => {
             const Icon = item.icon;
@@ -210,12 +219,10 @@ export default function PartnersPage() {
           />
         </div>
         <div className="mt-6 flex flex-col items-center gap-4 text-center">
-          <p className="text-body1 leading-relaxed text-foreground">
-            우리는 업체를 늘리는 것이 목표가 아닙니다.
-          </p>
-          <p className="whitespace-pre-line text-body2 leading-relaxed text-muted-foreground">
-            여행객에게는 더 좋은 경험을,{"\n"}현지 파트너에게는 더 많은 기회를 만드는 것이{"\n"}
-            LAOTALK의 목표입니다.
+          <h2 className="text-title1 text-foreground">함께 성장합니다.</h2>
+          <p className="whitespace-pre-line text-body1 leading-relaxed text-muted-foreground">
+            LAOTALK는{"\n"}여행객에게는 더 좋은 경험을,{"\n"}현지 파트너에게는 더 많은 기회를
+            {"\n"}만드는 플랫폼을 지향합니다.
           </p>
           <p className="whitespace-pre-line text-title2 text-foreground">
             라오스를 알리고,{"\n"}함께 성장합니다.
