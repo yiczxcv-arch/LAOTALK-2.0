@@ -143,8 +143,8 @@ export const packages: TravelPackage[] = [
     tags: ["비엔티안", "골프", "단체"],
     price: 650000,
     priceUnit: "1인",
-    imageSrc: IMAGES.golfCourse,
-    images: [IMAGES.golfCourse],
+    imageSrc: IMAGES.golfLakeview,
+    images: [IMAGES.golfLakeview],
     description: "비엔티안 인기 골프장 2곳에서의 라운딩과 숙박, 픽업까지 포함된 골프 애호가를 위한 패키지입니다.",
     included: [
       { icon: "bed", label: "숙박" },

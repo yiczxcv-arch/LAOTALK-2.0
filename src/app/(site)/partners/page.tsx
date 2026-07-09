@@ -219,7 +219,7 @@ export default function PartnersPage() {
         <div className="relative aspect-[4/3] w-full overflow-hidden rounded-card sm:aspect-video">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={IMAGES.kuangSiWaterfall}
+            src={IMAGES.golfLongvien}
             alt="라오스의 자연"
             className="size-full object-cover"
           />

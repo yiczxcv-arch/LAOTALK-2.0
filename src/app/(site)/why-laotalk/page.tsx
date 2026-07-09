@@ -118,7 +118,7 @@ export default function WhyLaotalkPage() {
       <section className="px-4 pb-2 pt-12">
         <div className="relative aspect-[4/3] w-full overflow-hidden rounded-card sm:aspect-video">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={IMAGES.blueLagoon} alt="라오스의 자연" className="size-full object-cover" />
+          <img src={IMAGES.ziplineCave} alt="라오스의 자연" className="size-full object-cover" />
         </div>
         <div className="mt-6 flex flex-col items-center gap-4 text-center">
           <p className="whitespace-pre-line text-body1 leading-relaxed text-foreground">

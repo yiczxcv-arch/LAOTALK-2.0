@@ -150,8 +150,8 @@ export const activities: Activity[] = [
     priceUnit: "1인",
     rating: { score: 4.5, count: 41 },
     reservationCount: 63,
-    imageSrc: IMAGES.heroPhaThatLuang,
-    images: [IMAGES.heroPhaThatLuang],
+    imageSrc: IMAGES.golfMekong,
+    images: [IMAGES.golfMekong],
     description:
       "빠뚜싸이, 탓루앙 등 비엔티안의 핵심 명소를 반나절 만에 둘러보는 시티 투어입니다.",
     included: [

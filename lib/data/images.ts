@@ -9,6 +9,7 @@ export const IMAGES = {
   golfCourse: "/images/golf-course.jpg",
   golfLakeview: "/images/golf-lakeview.jpg",
   golfMekong: "/images/golf-mekong.jpg",
+  golfLongvien: "/images/golf-longvien.jpg",
   blueLagoon: "/images/blue-lagoon.jpg",
   ziplineCave: "/images/zipline-cave.jpg",
   kuangSiWaterfall: "/images/kuang-si-waterfall.jpg",
