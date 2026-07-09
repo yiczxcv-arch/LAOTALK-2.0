@@ -26,9 +26,23 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: PackageDetailPageProps): Promise<Metadata> {
   const { slug } = await params;
   const pkg = getPackageBySlug(slug);
+  const title = pkg ? `${pkg.title} | LAOTALK` : "패키지 | LAOTALK";
   return {
-    title: pkg ? `${pkg.title} | LAOTALK` : "패키지 | LAOTALK",
+    title,
     description: pkg?.description,
+    alternates: { canonical: `/package/${slug}` },
+    openGraph: {
+      title,
+      description: pkg?.description,
+      url: `/package/${slug}`,
+      images: pkg ? [{ url: pkg.imageSrc, width: 1200, height: 900, alt: pkg.title }] : undefined,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description: pkg?.description,
+      images: pkg ? [pkg.imageSrc] : undefined,
+    },
   };
 }
 

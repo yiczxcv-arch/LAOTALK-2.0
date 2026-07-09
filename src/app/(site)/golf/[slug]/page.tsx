@@ -20,9 +20,23 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: GolfDetailPageProps): Promise<Metadata> {
   const { slug } = await params;
   const course = getGolfCourseBySlug(slug);
+  const title = course ? `${course.title} | LAOTALK` : "골프 | LAOTALK";
   return {
-    title: course ? `${course.title} | LAOTALK` : "골프 | LAOTALK",
+    title,
     description: course?.description,
+    alternates: { canonical: `/golf/${slug}` },
+    openGraph: {
+      title,
+      description: course?.description,
+      url: `/golf/${slug}`,
+      images: course ? [{ url: course.imageSrc, width: 1200, height: 900, alt: course.title }] : undefined,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description: course?.description,
+      images: course ? [course.imageSrc] : undefined,
+    },
   };
 }
 

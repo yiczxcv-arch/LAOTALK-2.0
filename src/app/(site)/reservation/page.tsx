@@ -8,6 +8,18 @@ import type { SelectedProduct } from "@/lib/types/inquiry";
 export const metadata: Metadata = {
   title: "예약 문의 | LAOTALK",
   description: "원하시는 상품을 확인하고 예약 정보를 입력해주세요",
+  // 쿼리(type/slug) 유무와 무관하게 대표 URL로 정규화 — 상품별 중복 색인 방지
+  alternates: { canonical: "/reservation" },
+  openGraph: {
+    title: "예약 문의 | LAOTALK",
+    description: "원하시는 상품을 확인하고 예약 정보를 입력해주세요",
+    url: "/reservation",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "예약 문의 | LAOTALK",
+    description: "원하시는 상품을 확인하고 예약 정보를 입력해주세요",
+  },
 };
 
 type ReservationPageProps = {

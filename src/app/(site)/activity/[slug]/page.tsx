@@ -29,9 +29,23 @@ export async function generateMetadata({
 }: ActivityDetailPageProps): Promise<Metadata> {
   const { slug } = await params;
   const activity = getActivityBySlug(slug);
+  const title = activity ? `${activity.title} | LAOTALK` : "액티비티 | LAOTALK";
   return {
-    title: activity ? `${activity.title} | LAOTALK` : "액티비티 | LAOTALK",
+    title,
     description: activity?.description,
+    alternates: { canonical: `/activity/${slug}` },
+    openGraph: {
+      title,
+      description: activity?.description,
+      url: `/activity/${slug}`,
+      images: activity ? [{ url: activity.imageSrc, width: 1200, height: 900, alt: activity.title }] : undefined,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description: activity?.description,
+      images: activity ? [activity.imageSrc] : undefined,
+    },
   };
 }
 

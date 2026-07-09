@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { HeroBanner } from "@/components/home/HeroBanner";
 import { NoticeBar } from "@/components/home/NoticeBar";
 import { LaotalkTv } from "@/components/home/LaotalkTv";
@@ -7,6 +8,10 @@ import { RecommendedActivities } from "@/components/home/RecommendedActivities";
 import { RecommendedPackages } from "@/components/home/RecommendedPackages";
 import { CustomTravelCta } from "@/components/home/CustomTravelCta";
 import { ReservationCta } from "@/components/home/ReservationCta";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 /**
  * HOME 페이지 (docs/02_BLUEPRINT.md #3 HOME 구성 · design/mockup 9번.png)
