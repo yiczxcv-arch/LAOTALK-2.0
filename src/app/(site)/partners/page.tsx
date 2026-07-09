@@ -36,13 +36,13 @@ export const metadata: Metadata = {
     title,
     description,
     url: "/partners",
-    images: [{ url: IMAGES.heroPhaThatLuang, width: 1200, height: 900, alt: "함께하는 파트너" }],
+    images: [{ url: IMAGES.golfCourse, width: 1200, height: 900, alt: "함께하는 파트너" }],
   },
   twitter: {
     card: "summary_large_image",
     title,
     description,
-    images: [IMAGES.heroPhaThatLuang],
+    images: [IMAGES.golfCourse],
   },
 };
 
@@ -108,8 +108,8 @@ export default function PartnersPage() {
         <div className="relative h-[320px] overflow-hidden rounded-[20px] shadow-[0_12px_28px_rgba(17,24,39,0.22)] sm:h-[380px] lg:h-[440px]">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={IMAGES.heroPhaThatLuang}
-            alt="라오스 대표 전경"
+            src={IMAGES.golfCourse}
+            alt="정성껏 관리된 라오스의 파트너 시설"
             className="absolute inset-0 size-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/10" />
@@ -219,7 +219,7 @@ export default function PartnersPage() {
         <div className="relative aspect-[4/3] w-full overflow-hidden rounded-card sm:aspect-video">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={IMAGES.golfLongvien}
+            src={IMAGES.blueLagoon}
             alt="라오스의 자연"
             className="size-full object-cover"
           />
