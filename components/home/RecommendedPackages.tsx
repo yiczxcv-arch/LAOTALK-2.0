@@ -5,7 +5,7 @@ import { recommendedPackages } from "@/components/home/data";
 /** 추천 패키지 가로 스크롤 목록 (design/mockup 9번.png "07 추천 패키지") */
 function RecommendedPackages() {
   return (
-    <section className="pt-5">
+    <section className="pt-6">
       <div className="px-4">
         <SectionHeader title="추천 패키지" href="/package" />
       </div>

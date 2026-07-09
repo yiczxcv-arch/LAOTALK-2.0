@@ -131,7 +131,10 @@ export default function PartnersPage() {
           {fields.map((field) => {
             const Icon = field.icon;
             return (
-              <div key={field.id} className="flex flex-col gap-2 rounded-card bg-surface p-4">
+              <div
+                key={field.id}
+                className="flex flex-col gap-2 rounded-card bg-surface p-4 shadow-[0_2px_10px_rgba(15,23,42,0.05)]"
+              >
                 <Icon className="size-6 text-primary" strokeWidth={1.75} />
                 <p className="text-body1 text-foreground">{field.label}</p>
                 <p className="text-caption2 text-muted-foreground">{field.desc}</p>
@@ -148,7 +151,10 @@ export default function PartnersPage() {
         <SectionHeader title="우리가 함께하는 기준" className="mt-1" />
         <div className="mt-4 flex flex-col gap-3">
           {standards.map((standard) => (
-            <div key={standard} className="flex items-center gap-3 rounded-card bg-surface p-4">
+            <div
+              key={standard}
+              className="flex items-center gap-3 rounded-card bg-surface p-4 shadow-[0_2px_10px_rgba(15,23,42,0.05)]"
+            >
               <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-primary/10">
                 <Check className="size-4 text-primary" strokeWidth={2.5} />
               </span>
@@ -171,7 +177,7 @@ export default function PartnersPage() {
             const Icon = step.icon;
             return (
               <div key={step.id} className="flex w-full flex-col items-center">
-                <div className="flex w-full max-w-xs items-center gap-3 rounded-card bg-surface p-4">
+                <div className="flex w-full max-w-xs items-center gap-3 rounded-card bg-surface p-4 shadow-[0_2px_10px_rgba(15,23,42,0.05)]">
                   <Icon className="size-5 shrink-0 text-primary" strokeWidth={1.75} />
                   <p className="text-body1 text-foreground">{step.label}</p>
                 </div>

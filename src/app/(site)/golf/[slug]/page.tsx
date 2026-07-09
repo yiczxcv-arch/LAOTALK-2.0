@@ -90,7 +90,7 @@ export default async function GolfDetailPage({ params }: GolfDetailPageProps) {
           <p className="mt-2 text-body2 leading-relaxed text-foreground">{course.description}</p>
         </section>
 
-        <section className="mt-6">
+        <section className="mt-8">
           <h2 className="text-title2 text-foreground">코스 정보</h2>
           <div className="mt-3 grid grid-cols-2 gap-3">
             {courseInfoItems.map((item) => {
@@ -98,7 +98,7 @@ export default async function GolfDetailPage({ params }: GolfDetailPageProps) {
               return (
                 <div
                   key={item.label}
-                  className="flex flex-col items-center gap-1 rounded-card bg-surface p-3 text-center"
+                  className="flex flex-col items-center gap-1 rounded-card bg-surface p-3 text-center shadow-[0_2px_10px_rgba(15,23,42,0.05)]"
                 >
                   <Icon className="size-6 text-primary" strokeWidth={1.75} />
                   <p className="text-caption2 text-muted-foreground">{item.label}</p>

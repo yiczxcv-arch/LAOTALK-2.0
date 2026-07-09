@@ -87,7 +87,7 @@ export default async function PackageDetailPage({ params }: PackageDetailPagePro
           <p className="mt-2 text-body2 leading-relaxed text-foreground">{pkg.description}</p>
         </section>
 
-        <section className="mt-6">
+        <section className="mt-8">
           <h2 className="text-title2 text-foreground">포함 사항</h2>
           <div className="mt-3 grid grid-cols-4 gap-3">
             {pkg.included.map((item) => {
@@ -95,7 +95,7 @@ export default async function PackageDetailPage({ params }: PackageDetailPagePro
               return (
                 <div
                   key={item.label}
-                  className="flex flex-col items-center gap-1 rounded-card bg-surface p-3 text-center"
+                  className="flex flex-col items-center gap-1 rounded-card bg-surface p-3 text-center shadow-[0_2px_10px_rgba(15,23,42,0.05)]"
                 >
                   <Icon className="size-6 text-primary" strokeWidth={1.75} />
                   <p className="text-caption2 text-muted-foreground">{item.label}</p>
@@ -105,11 +105,14 @@ export default async function PackageDetailPage({ params }: PackageDetailPagePro
           </div>
         </section>
 
-        <section className="mt-6">
+        <section className="mt-8">
           <h2 className="text-title2 text-foreground">일정</h2>
           <div className="mt-3 flex flex-col gap-3">
             {pkg.itinerary.map((day) => (
-              <div key={day.day} className="rounded-card bg-surface p-4">
+              <div
+                key={day.day}
+                className="rounded-card bg-surface p-4 shadow-[0_2px_10px_rgba(15,23,42,0.05)]"
+              >
                 <Tag variant="primary">{`DAY ${day.day}`}</Tag>
                 <p className="mt-2 text-body1 text-foreground">{day.title}</p>
                 <p className="mt-1 text-body2 text-muted-foreground">{day.description}</p>

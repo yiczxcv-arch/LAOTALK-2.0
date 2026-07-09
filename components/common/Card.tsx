@@ -37,7 +37,7 @@ function Card({
     <Link
       href={href}
       className={cn(
-        "group block overflow-hidden rounded-card bg-card shadow-[0_6px_18px_rgba(15,23,42,0.1)] ring-1 ring-black/5 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_12px_24px_rgba(15,23,42,0.16)] active:translate-y-0 active:shadow-[0_4px_12px_rgba(15,23,42,0.1)]",
+        "group block overflow-hidden rounded-card bg-card shadow-[0_4px_16px_rgba(15,23,42,0.07)] ring-1 ring-black/5 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_18px_34px_rgba(15,23,42,0.14)] active:translate-y-0 active:shadow-[0_4px_12px_rgba(15,23,42,0.08)]",
         className,
       )}
     >

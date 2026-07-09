@@ -20,7 +20,7 @@ function ListCard({ href, title, price, imageSrc, region, rating, className }: L
     <Link
       href={href}
       className={cn(
-        "flex cursor-pointer items-center gap-3 rounded-card bg-card px-3 py-1.5 shadow-[0_2px_10px_rgba(15,23,42,0.06)] ring-1 ring-black/5 transition-[box-shadow,transform] duration-200 ease-out hover:-translate-y-0.5 hover:shadow-[0_8px_20px_rgba(15,23,42,0.12)] active:translate-y-0 active:shadow-[0_2px_8px_rgba(15,23,42,0.08)]",
+        "flex cursor-pointer items-center gap-3 rounded-card bg-card px-3 py-2 shadow-[0_2px_10px_rgba(15,23,42,0.05)] ring-1 ring-black/5 transition-[box-shadow,transform] duration-300 ease-out hover:-translate-y-0.5 hover:shadow-[0_10px_24px_rgba(15,23,42,0.1)] active:translate-y-0 active:shadow-[0_2px_8px_rgba(15,23,42,0.07)]",
         className,
       )}
     >

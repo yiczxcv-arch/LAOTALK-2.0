@@ -5,7 +5,7 @@ import { recommendedActivities } from "@/components/home/data";
 /** 추천 액티비티 가로 스크롤 목록 (design/mockup 9번.png "06 추천 액티비티") */
 function RecommendedActivities() {
   return (
-    <section className="pt-5">
+    <section className="pt-8">
       <div className="px-4">
         <SectionHeader title="추천 액티비티" href="/activity" />
       </div>

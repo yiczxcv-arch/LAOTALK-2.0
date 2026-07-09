@@ -8,8 +8,8 @@ import { laotalkTv } from "@/components/home/data";
  */
 function LaotalkTv() {
   return (
-    <section className="px-4 pt-5">
-      <div className="rounded-card bg-surface p-4">
+    <section className="px-4 pt-6">
+      <div className="rounded-card bg-surface p-4 shadow-[0_2px_10px_rgba(15,23,42,0.05)]">
         <p className="flex items-center gap-1.5 text-title2 text-foreground">
           <span aria-hidden="true">🎥</span>
           라오톡 TV
@@ -23,14 +23,14 @@ function LaotalkTv() {
           target="_blank"
           rel="noopener noreferrer"
           aria-label="라오톡 TV 유튜브 채널에서 최신 영상 보기"
-          className="relative mt-3 block aspect-video overflow-hidden rounded-card"
+          className="group relative mt-3 block aspect-video overflow-hidden rounded-card"
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={laotalkTv.thumbnailSrc}
             alt=""
             aria-hidden="true"
-            className="size-full object-cover"
+            className="size-full object-cover transition-transform duration-300 group-hover:scale-105"
             loading="lazy"
           />
           <div className="absolute inset-0 flex items-center justify-center bg-black/20">

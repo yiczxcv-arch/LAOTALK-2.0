@@ -65,12 +65,12 @@ export default function WhyLaotalkPage() {
       <section className="px-4 pt-12">
         <h2 className="text-title2 text-foreground">라오스에는</h2>
         <div className="mt-4 flex flex-col gap-3">
-          <div className="rounded-card bg-surface p-6">
+          <div className="rounded-card bg-surface p-6 shadow-[0_2px_10px_rgba(15,23,42,0.05)]">
             <p className="whitespace-pre-line text-body1 leading-relaxed text-foreground">
               많은 좋은 장소가 있습니다.{"\n"}많은 좋은 업체가 있습니다.
             </p>
           </div>
-          <div className="rounded-card bg-surface p-6">
+          <div className="rounded-card bg-surface p-6 shadow-[0_2px_10px_rgba(15,23,42,0.05)]">
             <p className="whitespace-pre-line text-body1 leading-relaxed text-foreground">
               하지만{"\n"}좋은 정보는 흩어져 있었고{"\n"}여행객은 무엇을 믿어야 하는지{"\n"}알기
               어려웠습니다.
@@ -102,7 +102,10 @@ export default function WhyLaotalkPage() {
           {values.map((value) => {
             const Icon = value.icon;
             return (
-              <div key={value.id} className="flex flex-col gap-2 rounded-card bg-surface p-4">
+              <div
+                key={value.id}
+                className="flex flex-col gap-2 rounded-card bg-surface p-4 shadow-[0_2px_10px_rgba(15,23,42,0.05)]"
+              >
                 <Icon className="size-6 text-primary" strokeWidth={1.75} />
                 <p className="text-body1 text-foreground">{value.label}</p>
                 <p className="text-caption2 text-muted-foreground">{value.desc}</p>

@@ -4,10 +4,10 @@ import { ChevronRight, Luggage } from "lucide-react";
 /** 맞춤여행 CTA 배너 (design/mockup 9번.png "08 맞춤여행 CTA배너") */
 function CustomTravelCta() {
   return (
-    <section className="px-4 pt-5">
+    <section className="px-4 pt-10">
       <Link
         href="/custom-travel"
-        className="flex items-center justify-between gap-4 rounded-card bg-primary-hover px-5 py-5 text-white shadow-[0_4px_12px_rgba(30,64,175,0.3)] transition-transform hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.99]"
+        className="flex items-center justify-between gap-4 rounded-card bg-primary-hover px-5 py-5 text-white shadow-[0_4px_12px_rgba(30,64,175,0.3)] transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-[0_10px_22px_rgba(30,64,175,0.38)] active:translate-y-0 active:scale-[0.99]"
       >
         <div className="min-w-0">
           <p className="text-title2 leading-snug">

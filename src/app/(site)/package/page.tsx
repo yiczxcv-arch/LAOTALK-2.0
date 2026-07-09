@@ -42,11 +42,11 @@ export default function PackageListPage() {
         </p>
       </section>
 
-      <section className="px-4 pt-5">
+      <section className="px-4 pt-6">
         <FilterTabs options={filterOptions} value={filter} onChange={handleFilterChange} />
       </section>
 
-      <section className="flex flex-col gap-3 px-4 pt-5">
+      <section className="flex flex-col gap-3 px-4 pt-6">
         {paged.map((pkg) => (
           <ListCard
             key={pkg.id}
@@ -59,7 +59,7 @@ export default function PackageListPage() {
         ))}
       </section>
 
-      <div className="pt-5">
+      <div className="pt-6">
         <Pagination page={page} totalPages={totalPages} onChange={setPage} />
       </div>
     </div>

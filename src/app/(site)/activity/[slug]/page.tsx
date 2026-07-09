@@ -95,7 +95,7 @@ export default async function ActivityDetailPage({ params }: ActivityDetailPageP
           <p className="mt-2 text-body2 leading-relaxed text-foreground">{activity.description}</p>
         </section>
 
-        <section className="mt-6">
+        <section className="mt-8">
           <h2 className="text-title2 text-foreground">포함 사항</h2>
           <div className="mt-3 grid grid-cols-3 gap-3">
             {activity.included.map((item) => {
@@ -103,7 +103,7 @@ export default async function ActivityDetailPage({ params }: ActivityDetailPageP
               return (
                 <div
                   key={item.label}
-                  className="flex flex-col items-center gap-1 rounded-card bg-surface p-3 text-center"
+                  className="flex flex-col items-center gap-1 rounded-card bg-surface p-3 text-center shadow-[0_2px_10px_rgba(15,23,42,0.05)]"
                 >
                   <Icon className="size-6 text-primary" strokeWidth={1.75} />
                   <p className="text-caption2 text-muted-foreground">{item.label}</p>
@@ -114,7 +114,7 @@ export default async function ActivityDetailPage({ params }: ActivityDetailPageP
           </div>
         </section>
 
-        <section className="mt-6">
+        <section className="mt-8">
           <h2 className="text-title2 text-foreground">이용 안내</h2>
           <ul className="mt-3 flex flex-col gap-2">
             {activity.usageNotes.map((note) => (

@@ -69,9 +69,9 @@ function ReservationForm({ product }: ReservationFormProps) {
         </div>
       ) : (
         <>
-          <section className="px-4 pt-5">
+          <section className="px-4 pt-6">
             <h2 className="text-title2 text-foreground">선택하신 상품</h2>
-            <div className="mt-3 flex items-center gap-3 rounded-card bg-surface p-3">
+            <div className="mt-3 flex items-center gap-3 rounded-card bg-surface p-3 shadow-[0_2px_10px_rgba(15,23,42,0.05)]">
               <div className="size-16 shrink-0 overflow-hidden rounded-card">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
@@ -87,7 +87,7 @@ function ReservationForm({ product }: ReservationFormProps) {
             </div>
           </section>
 
-          <form onSubmit={handleSubmit} className="flex flex-col gap-4 px-4 pt-5">
+          <form onSubmit={handleSubmit} className="flex flex-col gap-5 px-4 pt-6">
             <h2 className="text-title2 text-foreground">예약자 정보</h2>
 
             <TextField

@@ -17,7 +17,7 @@ const UNAVAILABLE_CATEGORY_IDS = new Set(["stay", "car"]);
 /** 카테고리 서비스 6가지 (design/mockup 9번.png "05 카테고리 서비스") */
 function CategoryServices() {
   return (
-    <section className="px-4 pt-5">
+    <section className="px-4 pt-8">
       <h2 className="text-title2 text-foreground">카테고리 서비스</h2>
       <div className="mt-3 grid grid-cols-3 gap-x-3 gap-y-5">
         {categoryServices.map((item) => {
@@ -54,7 +54,7 @@ function CategoryServices() {
             <Link
               key={item.id}
               href={item.href}
-              className="flex flex-col items-center justify-center gap-1.5 text-center transition-[opacity,transform] duration-150 active:scale-95 active:opacity-70"
+              className="flex flex-col items-center justify-center gap-1.5 text-center transition-[opacity,transform] duration-150 hover:-translate-y-0.5 active:scale-95 active:opacity-70"
             >
               {content}
             </Link>

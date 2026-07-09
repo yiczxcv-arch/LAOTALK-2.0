@@ -57,7 +57,7 @@ export default function CustomTravelPage() {
         </p>
       </section>
 
-      <form onSubmit={handleSubmit} className="flex flex-col gap-4 px-4 pt-5">
+      <form onSubmit={handleSubmit} className="flex flex-col gap-5 px-4 pt-6">
         <SelectField
           label="여행 스타일"
           name="travelStyle"

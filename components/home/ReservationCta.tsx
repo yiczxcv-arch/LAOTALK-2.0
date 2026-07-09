@@ -4,7 +4,7 @@ import { PrimaryButton } from "@/components/common/PrimaryButton";
 /** 하단 예약 CTA (design/mockup 9번.png "09 하단 예약 CTA") */
 function ReservationCta() {
   return (
-    <section className="px-4 pt-5">
+    <section className="px-4 pt-6">
       <PrimaryButton href="/reservation">
         <CalendarCheck className="size-5" />
         예약하기
