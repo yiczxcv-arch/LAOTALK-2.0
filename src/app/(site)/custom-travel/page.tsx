@@ -1,122 +1,81 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
-import { CircleCheck } from "lucide-react";
-import { SelectField } from "@/components/common/SelectField";
-import { TextField } from "@/components/common/TextField";
-import { TextareaField } from "@/components/common/TextareaField";
-import { Checkbox } from "@/components/common/Checkbox";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { ToggleChipGroup } from "@/components/common/ToggleChipGroup";
 import { PrimaryButton } from "@/components/common/PrimaryButton";
 import {
-  travelStyleOptions,
-  travelDurationOptions,
-  travelRegionOptions,
-  type CustomTravelInquiry,
+  travelPlanDurationOptions,
+  travelPlanPeopleOptions,
+  travelPlanStyleOptions,
+  travelPlanStayOptions,
+  travelPlanBudgetOptions,
 } from "@/lib/types/inquiry";
 
-const initialForm: CustomTravelInquiry = {
-  travelStyle: "",
-  duration: "",
-  peopleCount: "",
-  region: "",
-  message: "",
-  agreedToPrivacyPolicy: false,
-};
-
-/** 맞춤여행 문의 페이지 (docs/02_BLUEPRINT.md #7 CUSTOM TRAVEL · design/wireframe 7번.png "09 맞춤여행 문의") */
+/** 맞춤여행 설계 페이지 — 조건을 토글칩으로 선택하면 예약 페이지로 값이 전달된다 (docs/02_BLUEPRINT.md #7 CUSTOM TRAVEL) */
 export default function CustomTravelPage() {
-  const [form, setForm] = useState<CustomTravelInquiry>(initialForm);
-  const [submitted, setSubmitted] = useState(false);
+  const router = useRouter();
+  const [duration, setDuration] = useState<string | null>(null);
+  const [people, setPeople] = useState<string | null>(null);
+  const [style, setStyle] = useState<string | null>(null);
+  const [stay, setStay] = useState<string | null>(null);
+  const [budget, setBudget] = useState<string | null>(null);
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    // 실제 서버 전송 없이 프론트 상태로만 완료 화면을 표시한다 (docs/04_PROJECT_RULE.md #7).
-    setSubmitted(true);
-  }
+  const allSelected = Boolean(duration && people && style && stay && budget);
 
-  if (submitted) {
-    return (
-      <div className="mx-auto flex min-h-[70vh] max-w-[1200px] flex-col items-center justify-center gap-4 px-4 text-center">
-        <CircleCheck className="size-14 text-primary" strokeWidth={1.5} />
-        <p className="whitespace-pre-line text-title2 text-foreground">
-          문의가 접수되었습니다.{"\n"}담당자가 카카오로 연락드립니다.
-        </p>
-        <PrimaryButton href="/" className="mt-4 max-w-xs">
-          홈으로 돌아가기
-        </PrimaryButton>
-      </div>
-    );
+  function handleComplete() {
+    if (!duration || !people || !style || !stay || !budget) return;
+    const params = new URLSearchParams({
+      type: "custom",
+      duration,
+      people,
+      style,
+      stay,
+      budget,
+    });
+    router.push(`/reservation?${params.toString()}`);
   }
 
   return (
     <div className="mx-auto max-w-[1200px] pb-8">
       <section className="bg-primary px-4 pb-5 pt-6 text-white">
-        <h1 className="text-title1">맞춤여행 문의</h1>
+        <h1 className="text-title1">맞춤여행 설계</h1>
         <p className="mt-1 text-body1 font-medium text-white/85">
-          나만의 일정으로 자유롭게 라오스를 여행하세요
+          원하는 조건을 선택하면 맞춤 일정으로 상담해드립니다
         </p>
       </section>
 
-      <form onSubmit={handleSubmit} className="flex flex-col gap-5 px-4 pt-6">
-        <SelectField
-          label="여행 스타일"
-          name="travelStyle"
-          options={[...travelStyleOptions]}
-          value={form.travelStyle}
-          onChange={(e) => setForm((f) => ({ ...f, travelStyle: e.target.value }))}
-          required
-        />
-
-        <SelectField
+      <div className="flex flex-col gap-6 px-4 pt-6">
+        <ToggleChipGroup
           label="여행 기간"
-          name="duration"
-          options={[...travelDurationOptions]}
-          value={form.duration}
-          onChange={(e) => setForm((f) => ({ ...f, duration: e.target.value }))}
-          required
+          options={travelPlanDurationOptions}
+          value={duration}
+          onChange={setDuration}
+        />
+        <ToggleChipGroup
+          label="인원"
+          options={travelPlanPeopleOptions}
+          value={people}
+          onChange={setPeople}
+        />
+        <ToggleChipGroup
+          label="여행 스타일"
+          options={travelPlanStyleOptions}
+          value={style}
+          onChange={setStyle}
+        />
+        <ToggleChipGroup label="숙소" options={travelPlanStayOptions} value={stay} onChange={setStay} />
+        <ToggleChipGroup
+          label="예산"
+          options={travelPlanBudgetOptions}
+          value={budget}
+          onChange={setBudget}
         />
 
-        <TextField
-          label="인원 수"
-          name="peopleCount"
-          type="number"
-          min={1}
-          placeholder="인원 수를 입력해주세요"
-          value={form.peopleCount}
-          onChange={(e) => setForm((f) => ({ ...f, peopleCount: e.target.value }))}
-          required
-        />
-
-        <SelectField
-          label="희망 지역"
-          name="region"
-          options={[...travelRegionOptions]}
-          value={form.region}
-          onChange={(e) => setForm((f) => ({ ...f, region: e.target.value }))}
-          required
-        />
-
-        <TextareaField
-          label="문의 내용"
-          name="message"
-          placeholder="원하는 여행 스타일이나 요청사항을 입력해주세요"
-          value={form.message}
-          onChange={(e) => setForm((f) => ({ ...f, message: e.target.value }))}
-          required
-        />
-
-        <Checkbox
-          label="개인정보 수집 및 이용에 동의합니다."
-          name="agreedToPrivacyPolicy"
-          checked={form.agreedToPrivacyPolicy}
-          onChange={(e) => setForm((f) => ({ ...f, agreedToPrivacyPolicy: e.target.checked }))}
-          required
-        />
-
-        <PrimaryButton type="submit" className="mt-2" disabled={!form.agreedToPrivacyPolicy}>
-          문의하기
+        <PrimaryButton type="button" onClick={handleComplete} disabled={!allSelected} className="mt-2">
+          선택 완료
         </PrimaryButton>
-      </form>
+      </div>
     </div>
   );
 }

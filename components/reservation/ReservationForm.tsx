@@ -27,6 +27,7 @@ const categoryLabelMap: Record<ProductType, string> = {
   golf: "골프",
   activity: "액티비티",
   package: "패키지",
+  custom: "맞춤여행",
 };
 
 const categoryBrowseHrefMap: Record<ProductType, string> = {
@@ -34,6 +35,7 @@ const categoryBrowseHrefMap: Record<ProductType, string> = {
   golf: "/golf",
   activity: "/activity",
   package: "/package",
+  custom: "/custom-travel",
 };
 
 const dateLabelMap: Record<ProductType, string> = {
@@ -41,7 +43,16 @@ const dateLabelMap: Record<ProductType, string> = {
   golf: "희망 라운딩 날짜",
   activity: "희망 날짜",
   package: "출발 희망일",
+  custom: "여행 예정일",
 };
+
+const customDetailLabels: { key: keyof NonNullable<SelectedProduct["customDetails"]>; label: string }[] = [
+  { key: "duration", label: "여행기간" },
+  { key: "people", label: "인원" },
+  { key: "style", label: "스타일" },
+  { key: "stay", label: "숙소" },
+  { key: "budget", label: "예산" },
+];
 
 type ReservationFormProps = {
   product: SelectedProduct | null;
@@ -94,7 +105,8 @@ function ReservationForm({ product }: ReservationFormProps) {
           <PackageSearch className="size-14 text-muted-foreground" strokeWidth={1.5} />
           <p className="text-title2 text-foreground">상품을 선택해주세요</p>
           <p className="text-body2 text-muted-foreground">
-            숙소·액티비티·골프·패키지 페이지에서 예약하기 버튼을 눌러주세요.
+            숙소·액티비티·골프·패키지 페이지에서 예약하기 버튼을 누르거나, 맞춤여행 설계에서
+            선택을 완료해주세요.
           </p>
         </div>
       ) : (
@@ -109,32 +121,48 @@ function ReservationForm({ product }: ReservationFormProps) {
                 선택 변경
               </Link>
             </div>
-            <div className="mt-3 flex items-center gap-3 rounded-card bg-surface p-3 shadow-[0_2px_10px_rgba(15,23,42,0.05)]">
-              <div className="size-16 shrink-0 overflow-hidden rounded-card">
-                {form.product.imageSrc ? (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img
-                    src={form.product.imageSrc}
-                    alt={form.product.title}
-                    className="size-full object-cover"
-                  />
-                ) : (
-                  <ImagePlaceholder ratio="1:1" />
-                )}
-              </div>
-              <div className="flex min-w-0 flex-col gap-1">
+            {form.product.customDetails ? (
+              <div className="mt-3 flex flex-col gap-3 rounded-card bg-surface p-4 shadow-[0_2px_10px_rgba(15,23,42,0.05)]">
                 <Tag variant="outline" className="w-fit">
                   {categoryLabelMap[form.product.type]}
-                  {form.product.variantLabel ? ` · ${form.product.variantLabel}` : ""}
                 </Tag>
-                <p className="truncate text-body1 text-foreground">{form.product.title}</p>
-                {form.product.price !== null ? (
-                  <Price amount={form.product.price} />
-                ) : (
-                  <p className="text-body2 font-bold text-foreground">예약 문의</p>
-                )}
+                <div className="grid grid-cols-2 gap-x-3 gap-y-2">
+                  {customDetailLabels.map(({ key, label }) => (
+                    <p key={key} className="text-body2 text-foreground">
+                      <span className="text-muted-foreground">{label} </span>
+                      {form.product.customDetails?.[key]}
+                    </p>
+                  ))}
+                </div>
               </div>
-            </div>
+            ) : (
+              <div className="mt-3 flex items-center gap-3 rounded-card bg-surface p-3 shadow-[0_2px_10px_rgba(15,23,42,0.05)]">
+                <div className="size-16 shrink-0 overflow-hidden rounded-card">
+                  {form.product.imageSrc ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={form.product.imageSrc}
+                      alt={form.product.title}
+                      className="size-full object-cover"
+                    />
+                  ) : (
+                    <ImagePlaceholder ratio="1:1" />
+                  )}
+                </div>
+                <div className="flex min-w-0 flex-col gap-1">
+                  <Tag variant="outline" className="w-fit">
+                    {categoryLabelMap[form.product.type]}
+                    {form.product.variantLabel ? ` · ${form.product.variantLabel}` : ""}
+                  </Tag>
+                  <p className="truncate text-body1 text-foreground">{form.product.title}</p>
+                  {form.product.price !== null ? (
+                    <Price amount={form.product.price} />
+                  ) : (
+                    <p className="text-body2 font-bold text-foreground">예약 문의</p>
+                  )}
+                </div>
+              </div>
+            )}
           </section>
 
           <form onSubmit={handleSubmit} className="flex flex-col gap-5 px-4 pt-6">

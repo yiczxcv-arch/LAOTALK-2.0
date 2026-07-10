@@ -4,7 +4,14 @@ import { getActivityBySlug } from "@/lib/data/activities";
 import { getGolfCourseBySlug } from "@/lib/data/golf";
 import { getPackageBySlug } from "@/lib/data/packages";
 import { getStayBySlug } from "@/lib/data/stay";
-import type { SelectedProduct } from "@/lib/types/inquiry";
+import {
+  travelPlanDurationOptions,
+  travelPlanPeopleOptions,
+  travelPlanStyleOptions,
+  travelPlanStayOptions,
+  travelPlanBudgetOptions,
+  type SelectedProduct,
+} from "@/lib/types/inquiry";
 
 export const metadata: Metadata = {
   title: "예약 문의 | LAOTALK",
@@ -23,12 +30,32 @@ export const metadata: Metadata = {
   },
 };
 
-type ReservationPageProps = {
-  searchParams: Promise<{ type?: string; slug?: string }>;
+type ReservationSearchParams = {
+  type?: string;
+  slug?: string;
+  duration?: string;
+  people?: string;
+  style?: string;
+  stay?: string;
+  budget?: string;
 };
 
-/** 쿼리(type/slug)로 상품을 찾지 못하면 null을 반환한다 — 특정 상품으로의 임의 폴백 없음 */
-function resolveProduct(type?: string, slug?: string): SelectedProduct | null {
+type ReservationPageProps = {
+  searchParams: Promise<ReservationSearchParams>;
+};
+
+function findLabel<T extends string>(
+  options: readonly { label: string; value: T }[],
+  value: string | undefined,
+): string | null {
+  if (!value) return null;
+  return options.find((option) => option.value === value)?.label ?? null;
+}
+
+/** 쿼리로 상품/여행 설계 값을 찾지 못하면 null을 반환한다 — 임의 폴백 없이 안전하게 빈 상태로 보여준다 */
+function resolveProduct(params: ReservationSearchParams): SelectedProduct | null {
+  const { type, slug } = params;
+
   if (type === "activity" && slug) {
     const activity = getActivityBySlug(slug);
     if (activity) {
@@ -78,14 +105,30 @@ function resolveProduct(type?: string, slug?: string): SelectedProduct | null {
       };
     }
   }
+  if (type === "custom") {
+    const duration = findLabel(travelPlanDurationOptions, params.duration);
+    const people = findLabel(travelPlanPeopleOptions, params.people);
+    const style = findLabel(travelPlanStyleOptions, params.style);
+    const stay = findLabel(travelPlanStayOptions, params.stay);
+    const budget = findLabel(travelPlanBudgetOptions, params.budget);
+    if (duration && people && style && stay && budget) {
+      return {
+        type: "custom",
+        slug: "custom",
+        title: "맞춤여행 설계",
+        price: null,
+        customDetails: { duration, people, style, stay, budget },
+      };
+    }
+  }
 
   return null;
 }
 
 /** 예약 문의 페이지 (docs/02_BLUEPRINT.md #8 RESERVATION · design/wireframe 7번.png "04 예약하기") */
 export default async function ReservationPage({ searchParams }: ReservationPageProps) {
-  const { type, slug } = await searchParams;
-  const product = resolveProduct(type, slug);
+  const params = await searchParams;
+  const product = resolveProduct(params);
 
   return <ReservationForm product={product} />;
 }

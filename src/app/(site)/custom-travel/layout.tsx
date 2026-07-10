@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "맞춤여행 문의 | LAOTALK",
-  description: "나만의 일정으로 자유롭게 라오스를 여행하세요",
+  title: "맞춤여행 설계 | LAOTALK",
+  description: "여행 기간, 인원, 스타일을 선택하면 나만의 맞춤 일정으로 상담해드립니다",
   alternates: { canonical: "/custom-travel" },
   openGraph: {
     title: "맞춤여행 문의 | LAOTALK",
