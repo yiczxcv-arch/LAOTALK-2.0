@@ -112,6 +112,7 @@ export const categoryServices: CategoryService[] = [
 
 export type ActivityItem = {
   id: string;
+  slug: string;
   title: string;
   region: string;
   price: number;
@@ -124,6 +125,7 @@ export type ActivityItem = {
 /** lib/data/activities.ts(단일 소스)에서 상위 3건을 파생하여 중복 데이터를 없앤다. */
 export const recommendedActivities: ActivityItem[] = activities.slice(0, 3).map((activity) => ({
   id: activity.id,
+  slug: activity.slug,
   title: activity.title,
   region: activity.region,
   price: activity.price,

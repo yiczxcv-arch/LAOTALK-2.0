@@ -20,6 +20,7 @@ type CardProps = {
   tag?: CardTag;
   rating?: { score: number; count?: number };
   showFavorite?: boolean;
+  previewAction?: React.ReactNode;
   className?: string;
 };
 
@@ -33,6 +34,7 @@ function Card({
   tag,
   rating,
   showFavorite = true,
+  previewAction,
   className,
 }: CardProps) {
   return (
@@ -69,6 +71,7 @@ function Card({
             <Heart className="size-4 text-foreground" />
           </span>
         )}
+        {previewAction && <div className="absolute bottom-2 right-2">{previewAction}</div>}
       </div>
       <div className="flex flex-col gap-1 p-3">
         <p className="truncate text-body1 text-foreground">{title}</p>

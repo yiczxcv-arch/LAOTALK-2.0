@@ -1,13 +1,20 @@
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import { Tag } from "@/components/common/Tag";
+import { VideoPreviewButton } from "@/components/common/VideoPreviewButton";
 import { IMAGES } from "@/lib/data/images";
+import { getPreviewVideo } from "@/lib/data/previewVideos";
+
+const PREMIUM_GOLF_VIDEO_KEY = "golf-premium";
+const PREMIUM_GOLF_RESERVATION_HREF = "/reservation?type=golf&slug=lakeview-golf-club";
 
 /**
  * 프리미엄 골프 쇼케이스 — 카테고리 그리드의 "골프" 항목과 달리
  * 카드 나열이 아닌 단독 풀블리드 배너로 골프를 액티비티와 다른 역할(프리미엄 여행)로 보여준다.
  */
 function PremiumGolf() {
+  const video = getPreviewVideo(PREMIUM_GOLF_VIDEO_KEY);
+
   return (
     <section className="px-4 pt-10">
       <Link
@@ -27,6 +34,13 @@ function PremiumGolf() {
         <Tag variant="brand" className="absolute left-5 top-5 tracking-wide">
           PREMIUM GOLF
         </Tag>
+
+        <VideoPreviewButton
+          youtubeId={video?.youtubeId}
+          title={video?.title ?? "라오스 프리미엄 골프"}
+          reservationHref={PREMIUM_GOLF_RESERVATION_HREF}
+          className="absolute right-5 top-5"
+        />
 
         <div className="absolute inset-x-0 bottom-6 px-6 text-white">
           <h2 className="text-title1 drop-shadow-[0_2px_6px_rgba(0,0,0,0.45)]">
