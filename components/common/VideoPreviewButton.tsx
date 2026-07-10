@@ -15,7 +15,8 @@ type VideoPreviewButtonProps = {
 
 /**
  * 카드 위에 얹는 "미리보기" 배지 + 유튜브 임베드 모달(Base UI Dialog, modal 스크롤 잠금 기본 적용).
- * youtubeId가 없으면 아무것도 렌더링하지 않는다 — 영상 URL은 lib/data/previewVideos.ts에서만 관리한다.
+ * youtubeId가 없으면 아무것도 렌더링하지 않는다. 영상 URL은 콘텐츠 종류별 단일 소스에서 관리한다
+ * (액티비티·골프: lib/data/previewVideos.ts / 숙소: lib/data/stay.ts의 videoUrl 필드).
  *
  * 카드 전체가 <Link>이므로 트리거는 실제 <button>이 아닌 role="button" span으로 만들어
  * <a> 안에 인터랙티브 요소가 중첩되는 문제를 피하고, 클릭 시 preventDefault/stopPropagation으로

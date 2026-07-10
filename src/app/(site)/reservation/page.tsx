@@ -70,9 +70,9 @@ function resolveProduct(type?: string, slug?: string): SelectedProduct | null {
     if (stay) {
       return {
         type: "stay",
-        slug: stay.slug,
+        slug: stay.id,
         title: stay.title,
-        price: stay.price,
+        price: null,
         imageSrc: stay.imageSrc,
       };
     }

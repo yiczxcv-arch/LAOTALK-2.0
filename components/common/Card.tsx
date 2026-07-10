@@ -16,6 +16,7 @@ type CardProps = {
   title: string;
   description?: string;
   price: number | null;
+  priceLabel?: string;
   imageSrc?: string;
   tag?: CardTag;
   rating?: { score: number; count?: number };
@@ -30,6 +31,7 @@ function Card({
   title,
   description,
   price,
+  priceLabel,
   imageSrc,
   tag,
   rating,
@@ -79,7 +81,9 @@ function Card({
           <p className="line-clamp-1 text-caption2 text-muted-foreground">{description}</p>
         )}
         {rating && <Rating score={rating.score} count={rating.count} />}
-        {price !== null ? (
+        {priceLabel ? (
+          <p className="text-body2 font-bold text-foreground">{priceLabel}</p>
+        ) : price !== null ? (
           <Price amount={price} />
         ) : (
           <p className="text-body2 font-bold text-foreground">가격 문의</p>
