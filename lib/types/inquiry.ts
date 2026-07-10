@@ -55,6 +55,8 @@ export type SelectedProduct = {
   title: string;
   price: number | null;
   imageSrc?: string;
+  /** 카테고리 안의 세부 유형 (예: 숙소의 호텔/풀빌라). 없으면 카테고리 라벨만 표시한다. */
+  variantLabel?: string;
 };
 
 export type ReservationInquiry = {
@@ -69,4 +71,4 @@ export type ReservationInquiry = {
 };
 
 export const RESERVATION_COMPLETE_MESSAGE =
-  "문의가 접수되었습니다.\n담당자가 카카오로 연락드립니다.";
+  "문의가 접수되었습니다.\n확인 후 카카오톡 또는 연락처로 안내드리겠습니다.";

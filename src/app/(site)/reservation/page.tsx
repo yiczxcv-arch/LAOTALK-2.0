@@ -74,6 +74,7 @@ function resolveProduct(type?: string, slug?: string): SelectedProduct | null {
         title: stay.title,
         price: null,
         imageSrc: stay.imageSrc,
+        variantLabel: stay.type === "hotel" ? "호텔" : "풀빌라",
       };
     }
   }

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import Link from "next/link";
 import { CircleCheck, PackageSearch } from "lucide-react";
 import { StepIndicator } from "@/components/common/StepIndicator";
 import { TextField } from "@/components/common/TextField";
@@ -10,9 +11,37 @@ import { Checkbox } from "@/components/common/Checkbox";
 import { PrimaryButton } from "@/components/common/PrimaryButton";
 import { Price } from "@/components/common/Price";
 import { ImagePlaceholder } from "@/components/common/ImagePlaceholder";
-import { peopleCountOptions, type ReservationInquiry, type SelectedProduct } from "@/lib/types/inquiry";
+import { Tag } from "@/components/common/Tag";
+import {
+  peopleCountOptions,
+  RESERVATION_COMPLETE_MESSAGE,
+  type ProductType,
+  type ReservationInquiry,
+  type SelectedProduct,
+} from "@/lib/types/inquiry";
 
 const steps = ["상품 선택", "정보 입력", "문의 접수 완료"];
+
+const categoryLabelMap: Record<ProductType, string> = {
+  stay: "숙소",
+  golf: "골프",
+  activity: "액티비티",
+  package: "패키지",
+};
+
+const categoryBrowseHrefMap: Record<ProductType, string> = {
+  stay: "/",
+  golf: "/golf",
+  activity: "/activity",
+  package: "/package",
+};
+
+const dateLabelMap: Record<ProductType, string> = {
+  stay: "체크인 희망일",
+  golf: "희망 라운딩 날짜",
+  activity: "희망 날짜",
+  package: "출발 희망일",
+};
 
 type ReservationFormProps = {
   product: SelectedProduct | null;
@@ -54,7 +83,7 @@ function ReservationForm({ product }: ReservationFormProps) {
         <div className="flex min-h-[55vh] flex-col items-center justify-center gap-4 px-4 pt-10 text-center">
           <CircleCheck className="size-14 text-primary" strokeWidth={1.5} />
           <p className="whitespace-pre-line text-title2 text-foreground">
-            문의가 접수되었습니다.{"\n"}담당자가 카카오로 연락드립니다.
+            {RESERVATION_COMPLETE_MESSAGE}
           </p>
           <PrimaryButton href="/" className="mt-4 max-w-xs">
             홈으로 돌아가기
@@ -65,13 +94,21 @@ function ReservationForm({ product }: ReservationFormProps) {
           <PackageSearch className="size-14 text-muted-foreground" strokeWidth={1.5} />
           <p className="text-title2 text-foreground">상품을 선택해주세요</p>
           <p className="text-body2 text-muted-foreground">
-            액티비티·골프·패키지 상세 페이지에서 예약하기 버튼을 눌러주세요.
+            숙소·액티비티·골프·패키지 페이지에서 예약하기 버튼을 눌러주세요.
           </p>
         </div>
       ) : (
         <>
           <section className="px-4 pt-6">
-            <h2 className="text-title2 text-foreground">선택하신 상품</h2>
+            <div className="flex items-center justify-between">
+              <h2 className="text-title2 text-foreground">선택하신 상품</h2>
+              <Link
+                href={categoryBrowseHrefMap[form.product.type]}
+                className="text-caption2 text-muted-foreground underline-offset-2 hover:text-foreground hover:underline"
+              >
+                선택 변경
+              </Link>
+            </div>
             <div className="mt-3 flex items-center gap-3 rounded-card bg-surface p-3 shadow-[0_2px_10px_rgba(15,23,42,0.05)]">
               <div className="size-16 shrink-0 overflow-hidden rounded-card">
                 {form.product.imageSrc ? (
@@ -86,11 +123,15 @@ function ReservationForm({ product }: ReservationFormProps) {
                 )}
               </div>
               <div className="flex min-w-0 flex-col gap-1">
+                <Tag variant="outline" className="w-fit">
+                  {categoryLabelMap[form.product.type]}
+                  {form.product.variantLabel ? ` · ${form.product.variantLabel}` : ""}
+                </Tag>
                 <p className="truncate text-body1 text-foreground">{form.product.title}</p>
                 {form.product.price !== null ? (
                   <Price amount={form.product.price} />
                 ) : (
-                  <p className="text-body2 font-bold text-foreground">가격 문의</p>
+                  <p className="text-body2 font-bold text-foreground">예약 문의</p>
                 )}
               </div>
             </div>
@@ -128,7 +169,7 @@ function ReservationForm({ product }: ReservationFormProps) {
             />
 
             <TextField
-              label="여행 날짜"
+              label={dateLabelMap[form.product.type]}
               name="travelDate"
               type="date"
               value={form.travelDate}
@@ -146,11 +187,12 @@ function ReservationForm({ product }: ReservationFormProps) {
             />
 
             <TextareaField
-              label="요청사항 (선택)"
+              label="문의 내용"
               name="message"
-              placeholder="요청사항을 입력해주세요"
+              placeholder="문의하실 내용을 입력해주세요"
               value={form.message}
               onChange={(e) => setForm((f) => (f ? { ...f, message: e.target.value } : f))}
+              required
             />
 
             <Checkbox
@@ -162,7 +204,7 @@ function ReservationForm({ product }: ReservationFormProps) {
             />
 
             <PrimaryButton type="submit" className="mt-2" disabled={!form.agreedToPrivacyPolicy}>
-              예약 문의
+              예약 문의하기
             </PrimaryButton>
           </form>
         </>
