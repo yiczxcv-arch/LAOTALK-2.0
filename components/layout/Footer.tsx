@@ -10,7 +10,9 @@ function Footer() {
         </p>
 
         <div className="flex flex-wrap gap-x-3 gap-y-1.5">
-          <span>회사소개</span>
+          <Link href="/why-laotalk" className="hover:text-foreground">
+            회사소개
+          </Link>
           <Link href="/partners" className="hover:text-foreground">
             파트너
           </Link>

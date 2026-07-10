@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { pretendard } from "./fonts";
+import { IMAGES } from "@/lib/data/images";
 
 // 운영 도메인이 확정되면 배포 환경(Vercel 등)에 NEXT_PUBLIC_SITE_URL 환경변수를 설정한다.
 // 미설정 시 로컬 개발 기준(localhost)으로 폴백하며, OG/canonical 절대경로 계산에 사용된다.
@@ -22,13 +23,13 @@ export const metadata: Metadata = {
     url: "/",
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
-    images: [{ url: "/images/hero-pha-that-luang.jpg", width: 1200, height: 630, alt: SITE_TITLE }],
+    images: [{ url: IMAGES.heroPhaThatLuang, width: 1200, height: 630, alt: SITE_TITLE }],
   },
   twitter: {
     card: "summary_large_image",
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
-    images: ["/images/hero-pha-that-luang.jpg"],
+    images: [IMAGES.heroPhaThatLuang],
   },
 };
 

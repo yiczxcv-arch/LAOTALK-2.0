@@ -45,13 +45,11 @@ export const heroSlides: HeroSlide[] = [
 export type NoticeItem = {
   id: string;
   text: string;
-  href: string;
 };
 
 export const notice: NoticeItem = {
   id: "notice-1",
   text: "라오스 입국 및 비자 최신 정보 업데이트",
-  href: "/notice/visa-update",
 };
 
 export type TodayLaosItem = {

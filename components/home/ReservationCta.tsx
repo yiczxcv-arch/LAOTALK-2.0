@@ -10,7 +10,7 @@ function ReservationCta() {
         예약하기
       </PrimaryButton>
       <p className="mt-2 text-center text-caption2 text-muted-foreground">
-        숙소 · 골프 · 액티비티 · 차량 · 패키지
+        숙소 · 골프 · 액티비티 · 패키지 · 맞춤여행
       </p>
     </section>
   );

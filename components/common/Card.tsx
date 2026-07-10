@@ -86,7 +86,7 @@ function Card({
         ) : price !== null ? (
           <Price amount={price} />
         ) : (
-          <p className="text-body2 font-bold text-foreground">가격 문의</p>
+          <p className="text-body2 font-bold text-foreground">예약 문의</p>
         )}
       </div>
     </Link>
