@@ -3,6 +3,7 @@ import { ReservationForm } from "@/components/reservation/ReservationForm";
 import { getActivityBySlug } from "@/lib/data/activities";
 import { getGolfCourseBySlug } from "@/lib/data/golf";
 import { getPackageBySlug } from "@/lib/data/packages";
+import { getStayBySlug } from "@/lib/data/stay";
 import type { SelectedProduct } from "@/lib/types/inquiry";
 
 export const metadata: Metadata = {
@@ -61,6 +62,18 @@ function resolveProduct(type?: string, slug?: string): SelectedProduct | null {
         title: pkg.title,
         price: pkg.price,
         imageSrc: pkg.imageSrc,
+      };
+    }
+  }
+  if (type === "stay" && slug) {
+    const stay = getStayBySlug(slug);
+    if (stay) {
+      return {
+        type: "stay",
+        slug: stay.slug,
+        title: stay.title,
+        price: stay.price,
+        imageSrc: stay.imageSrc,
       };
     }
   }

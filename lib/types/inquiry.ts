@@ -47,14 +47,14 @@ export type CustomTravelInquiry = {
   agreedToPrivacyPolicy: boolean;
 };
 
-export type ProductType = "activity" | "golf" | "package";
+export type ProductType = "activity" | "golf" | "package" | "stay";
 
 export type SelectedProduct = {
   type: ProductType;
   slug: string;
   title: string;
-  price: number;
-  imageSrc: string;
+  price: number | null;
+  imageSrc?: string;
 };
 
 export type ReservationInquiry = {

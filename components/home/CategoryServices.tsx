@@ -11,8 +11,8 @@ const iconMap: Record<CategoryService["icon"], LucideIcon> = {
   custom: Sparkles,
 };
 
-// 아직 실제 페이지가 없는 카테고리(숙소 예약/차량·픽업)는 404로 보내지 않고 비활성 상태로 표시한다.
-const UNAVAILABLE_CATEGORY_IDS = new Set(["stay", "car"]);
+// 아직 실제 페이지가 없는 카테고리(차량·픽업)는 404로 보내지 않고 비활성 상태로 표시한다.
+const UNAVAILABLE_CATEGORY_IDS = new Set(["car"]);
 
 /** 카테고리 서비스 6가지 (design/mockup 9번.png "05 카테고리 서비스") */
 function CategoryServices() {

@@ -9,6 +9,7 @@ import { TextareaField } from "@/components/common/TextareaField";
 import { Checkbox } from "@/components/common/Checkbox";
 import { PrimaryButton } from "@/components/common/PrimaryButton";
 import { Price } from "@/components/common/Price";
+import { ImagePlaceholder } from "@/components/common/ImagePlaceholder";
 import { peopleCountOptions, type ReservationInquiry, type SelectedProduct } from "@/lib/types/inquiry";
 
 const steps = ["상품 선택", "정보 입력", "문의 접수 완료"];
@@ -73,16 +74,24 @@ function ReservationForm({ product }: ReservationFormProps) {
             <h2 className="text-title2 text-foreground">선택하신 상품</h2>
             <div className="mt-3 flex items-center gap-3 rounded-card bg-surface p-3 shadow-[0_2px_10px_rgba(15,23,42,0.05)]">
               <div className="size-16 shrink-0 overflow-hidden rounded-card">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={form.product.imageSrc}
-                  alt={form.product.title}
-                  className="size-full object-cover"
-                />
+                {form.product.imageSrc ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={form.product.imageSrc}
+                    alt={form.product.title}
+                    className="size-full object-cover"
+                  />
+                ) : (
+                  <ImagePlaceholder ratio="1:1" />
+                )}
               </div>
               <div className="flex min-w-0 flex-col gap-1">
                 <p className="truncate text-body1 text-foreground">{form.product.title}</p>
-                <Price amount={form.product.price} />
+                {form.product.price !== null ? (
+                  <Price amount={form.product.price} />
+                ) : (
+                  <p className="text-body2 font-bold text-foreground">가격 문의</p>
+                )}
               </div>
             </div>
           </section>

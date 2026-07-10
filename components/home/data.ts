@@ -105,7 +105,7 @@ export const categoryServices: CategoryService[] = [
   { id: "activity", label: "액티비티", sub: "즐길거리", href: "/activity", icon: "activity" },
   { id: "golf", label: "골프", sub: "라운딩 예약", href: "/golf", icon: "golf" },
   { id: "package", label: "패키지", sub: "여행 패키지", href: "/package", icon: "package" },
-  { id: "stay", label: "숙소 예약", sub: "호텔 & 리조트", href: "/stay", icon: "stay" },
+  { id: "stay", label: "숙소 예약", sub: "호텔 · 풀빌라", href: "/reservation", icon: "stay" },
   { id: "car", label: "차량/픽업", sub: "렌트 & 픽업", href: "/transport", icon: "car" },
   { id: "custom", label: "맞춤여행", sub: "나만의 여행", href: "/custom-travel", icon: "custom" },
 ];

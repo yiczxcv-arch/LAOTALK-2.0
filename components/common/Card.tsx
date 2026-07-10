@@ -14,7 +14,8 @@ type CardTag = {
 type CardProps = {
   href: string;
   title: string;
-  price: number;
+  description?: string;
+  price: number | null;
   imageSrc?: string;
   tag?: CardTag;
   rating?: { score: number; count?: number };
@@ -22,10 +23,11 @@ type CardProps = {
   className?: string;
 };
 
-/** 공통 카드 — 이미지(4:3) + 배지 + 제목 + 평점 + 가격 (design/mockup 9번.png 컴포넌트 상세: radius16, shadow light) */
+/** 공통 카드 — 이미지(4:3) + 배지 + 제목 + (선택)한줄설명 + 평점 + 가격 (design/mockup 9번.png 컴포넌트 상세: radius16, shadow light) */
 function Card({
   href,
   title,
+  description,
   price,
   imageSrc,
   tag,
@@ -70,8 +72,15 @@ function Card({
       </div>
       <div className="flex flex-col gap-1 p-3">
         <p className="truncate text-body1 text-foreground">{title}</p>
+        {description && (
+          <p className="line-clamp-1 text-caption2 text-muted-foreground">{description}</p>
+        )}
         {rating && <Rating score={rating.score} count={rating.count} />}
-        <Price amount={price} />
+        {price !== null ? (
+          <Price amount={price} />
+        ) : (
+          <p className="text-body2 font-bold text-foreground">가격 문의</p>
+        )}
       </div>
     </Link>
   );
