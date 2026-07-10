@@ -15,6 +15,7 @@ import { Tag } from "@/components/common/Tag";
 import {
   peopleCountOptions,
   RESERVATION_COMPLETE_MESSAGE,
+  RESERVATION_FAILURE_MESSAGE,
   type ProductType,
   type ReservationInquiry,
   type SelectedProduct,
@@ -77,11 +78,48 @@ function ReservationForm({ product }: ReservationFormProps) {
     product ? createInitialForm(product) : null
   );
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    // 실제 서버 전송 없이 프론트 상태로만 완료 화면을 표시한다 (docs/04_PROJECT_RULE.md #7).
-    setSubmitted(true);
+    // 연속 클릭·중복 제출 방지 — 이미 전송 중이면 새 요청을 시작하지 않는다.
+    if (isSubmitting || !form) return;
+
+    setIsSubmitting(true);
+    setSubmitError(null);
+
+    try {
+      const response = await fetch("/api/reservation", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: form.name,
+          phone: form.phone,
+          travelDate: form.travelDate,
+          peopleCount: form.peopleCount,
+          message: form.message,
+          referralPath: typeof window !== "undefined" ? window.location.pathname + window.location.search : "",
+          product: {
+            type: form.product.type,
+            title: form.product.title,
+            variantLabel: form.product.variantLabel,
+            customDetails: form.product.customDetails,
+          },
+        }),
+      });
+      const data = (await response.json()) as { success: boolean; message?: string };
+
+      if (response.ok && data.success) {
+        setSubmitted(true);
+      } else {
+        setSubmitError(data.message || RESERVATION_FAILURE_MESSAGE);
+      }
+    } catch {
+      setSubmitError(RESERVATION_FAILURE_MESSAGE);
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (
@@ -231,8 +269,18 @@ function ReservationForm({ product }: ReservationFormProps) {
               required
             />
 
-            <PrimaryButton type="submit" className="mt-2" disabled={!form.agreedToPrivacyPolicy}>
-              예약 문의하기
+            {submitError && (
+              <p role="alert" className="whitespace-pre-line text-center text-body2 font-medium text-destructive">
+                {submitError}
+              </p>
+            )}
+
+            <PrimaryButton
+              type="submit"
+              className="mt-2"
+              disabled={!form.agreedToPrivacyPolicy || isSubmitting}
+            >
+              {isSubmitting ? "접수 처리 중..." : "예약 문의하기"}
             </PrimaryButton>
           </form>
         </>

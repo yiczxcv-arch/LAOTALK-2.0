@@ -86,4 +86,7 @@ export type ReservationInquiry = {
 };
 
 export const RESERVATION_COMPLETE_MESSAGE =
-  "문의가 접수되었습니다.\n확인 후 카카오톡 또는 연락처로 안내드리겠습니다.";
+  "예약 문의가 접수되었습니다.\n확인 후 입력하신 연락처로 안내드리겠습니다.";
+
+export const RESERVATION_FAILURE_MESSAGE =
+  "문의 저장에 실패했습니다.\n입력 내용을 확인한 뒤 다시 시도해주세요.";
