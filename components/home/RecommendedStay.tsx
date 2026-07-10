@@ -4,9 +4,9 @@ import { VideoPreviewButton } from "@/components/common/VideoPreviewButton";
 import { stays, type StayType } from "@/lib/data/stay";
 import { extractYoutubeVideoId } from "@/lib/youtube";
 
-const typeLabelMap: Record<StayType, string> = {
-  hotel: "호텔",
-  "pool-villa": "풀빌라",
+const typeBadgeMap: Record<StayType, { label: string; variant: "primary" | "teal" }> = {
+  hotel: { label: "🏨 호텔", variant: "primary" },
+  "pool-villa": { label: "🏡 풀빌라", variant: "teal" },
 };
 
 /** 추천 숙소 가로 스크롤 목록 — 호텔·풀빌라 2개 유형만 제공 (리조트 미포함) */
@@ -31,7 +31,7 @@ function RecommendedStay() {
               price={null}
               priceLabel={stay.priceLabel}
               imageSrc={stay.imageSrc}
-              tag={{ label: typeLabelMap[stay.type], variant: "teal" }}
+              tag={typeBadgeMap[stay.type]}
               showFavorite={false}
               previewAction={
                 <VideoPreviewButton

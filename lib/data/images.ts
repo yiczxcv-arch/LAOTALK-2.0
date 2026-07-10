@@ -15,4 +15,8 @@ export const IMAGES = {
   kuangSiWaterfall: "/images/kuang-si-waterfall.jpg",
   tubing: "/images/tubing.jpg",
   hotAirBalloon: "/images/hot-air-balloon.jpg",
+  hotel01: "/images/hotel-01.png",
+  hotel02: "/images/hotel-02.png",
+  poolVilla01: "/images/pool-villa-01.png",
+  poolVilla02: "/images/pool-villa-02.png",
 } as const;
